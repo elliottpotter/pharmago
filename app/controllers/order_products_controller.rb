@@ -8,14 +8,14 @@ class OrderProductsController < ApplicationController
   end
 
   def create
-    @order = Order.find(params[:order_id])
-    @order_product = Order_product.new(order_product_params)
-    @order_product.order = @order
-    if @order_product.save
-      redirect_to order_path(@order)
-    else
-      render '/'
-    end
+    #@order = Order.find(params[:order_id])
+    @order_product = OrderProduct.new
+    #@order_product.order = @order
+    #if @order_product.save
+    #  redirect_to order_path(@order)
+    #else
+    #  render '/'
+    #end
   end
 
   private
