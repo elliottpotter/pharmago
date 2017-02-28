@@ -2,7 +2,7 @@
 
 20.times do
 
-  # Create customers
+    # Create customers
   1.times do
     user                     = User.new
     user.email               = Faker::Internet.email

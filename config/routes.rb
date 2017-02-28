@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :order_products, only: [ :index, :show ]
   resources :products, only: [ :index, :show ]
   resources :orders, only: [ :index, :show ]
+  resources :customers, only: [ :show]
 end
+

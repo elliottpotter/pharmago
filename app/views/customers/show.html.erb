@@ -1,0 +1,61 @@
+<div class="profile-header-wrapper">
+      <div class="container profile-header-container text-center">
+        <div class="profile-header-infos">
+        </div>
+        <div class="tabs">
+          <a class="tab active" data-target="#bio">
+            <h3>Bio</h3>
+          </a>
+          <a class="tab" data-target="#projects">
+            <h3>Projects</h3>
+          </a>
+          <a class="tab" data-target="#contact">
+            <h3>Contact</h3>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container text-center">
+      <div class="tab-content" id="bio">
+          <h1> testing yo </h1>
+          <h2> user_id: <%= @customer.id %> </h2>
+          <br>
+          <br>
+          <% @orders.each do |order| %>
+
+          <h3> id: <%= order.id  %> </h3>
+          <h3> status: <%= order.status %> </h3>
+          <h3> delivery date: <%= order.delivery_date %> </h3>
+
+          <% end %>
+          <br>
+          <br>
+      </div>
+      <div class="tab-content hidden" id="projects">
+        <p>Here are my projects.</p>
+      </div>
+      <div class="tab-content hidden" id="contact">
+        <p>Contact me if you want.</p>
+      </div>
+    </div>
+
+<script>
+  $(document).ready(function () {
+    $(function(){
+
+    $(".tab").on("click", function(e){
+      // Change active tab
+      $('.tab').removeClass('active')
+      $(this).addClass('active')
+
+      // Hide all tab-content (use class="hidden")
+      $('.tab-content').addClass('hidden')
+
+      // Show target tab-content (use class="hidden")
+      var id = $(".active").data("target")
+      $(id).removeClass('hidden')
+      });
+    });
+  });
+</script>
