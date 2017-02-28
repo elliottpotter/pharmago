@@ -1,7 +1,0 @@
-<h1>Orders</h1>
-
-<ul>
-  <% @order_products.each do |order| %>
-    <li><%= link_to order.name, order_product_path(order) %></li>
-  <% end %>
-</ul>
