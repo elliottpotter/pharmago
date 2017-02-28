@@ -20,6 +20,7 @@ gem 'autoprefixer-rails'
 # Our gems
 gem 'faker'
 
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
