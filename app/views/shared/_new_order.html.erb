@@ -1,9 +1,9 @@
-<h1> hello </h1>
+<h1 style="padding-bottom: 20px;"> What medicine would you like to order? </h1>
 
 <%= form_for(order) do |form| %>
   <%= form.fields_for :order_products, @order.order_products do |fform| %>
     <%= fform.select :product_id, @products.map {|p| [p.name, p.id]}  %>
-      How many? : <%= fform.text_field :quantity %>
+      How many? : <%= fform.text_field :quantity %> <br>
     <% end %>
   <%= form.button :submit %>
 <% end %>
