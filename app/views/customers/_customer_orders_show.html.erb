@@ -1,0 +1,8 @@
+<h1> Your orders </h1>
+<% orders.each do |order| %>
+  <div>
+    <h3> Order-id: <%= order.id  %> </h3>
+    <h3> Order -  status: <%= order.status %> </h3>
+    <h3> delivery date: <%= order.delivery_date %> </h3>
+  </div>
+<% end %>
