@@ -9,6 +9,7 @@ class PassthroughController < ApplicationController
     else
       raise
     end
+    authorize current_user
   end
 end
 

@@ -5,12 +5,22 @@
 
 
 .test {
-  opacity: .5;
+  opacity: .95;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #727272;
+  font-size: 14px;
 }
 
 .login {
   background-color: white;
   color: black;
   width: 500px;
-  border-radius: 5px;
+  border-radius: 3px;
+  padding: 20px;
+}
+ #logo {
+  width: 50%;
+  background-size: 200px;
+  //margin: 0px auto;
 }
