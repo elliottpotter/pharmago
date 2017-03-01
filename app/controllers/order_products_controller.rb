@@ -10,13 +10,14 @@ class OrderProductsController < ApplicationController
 
   def new
     @order_product         = OrderProduct.new
-    @product = @order_product.product.build
+    @product               = @order_product.product.build
   end
 
   def create
-    quantity               = order_product_params[:quantity]
-    product                = params[:product]
-    # @order_product         = OrderProduct.new(quantity: quantity)
+    # quantity               = order_product_params[:quantity]
+    # product                = params[:product]
+    # product = Product.new(params[:order_product][:product])
+    # @order_product         = OrderProduct.create(order_product_params)
     # @order_product.product = product
     # @order_product.save!
   end
@@ -24,6 +25,6 @@ class OrderProductsController < ApplicationController
   private
 
   def order_product_params
-    params.require(:order_product).permit(:quantity, product_attributes: [:name])
+    params.require(:order_product).permit(:quantity, products_attributes: [:name])
   end
 end

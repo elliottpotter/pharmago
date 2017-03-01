@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
-
-
   authenticated :user do
-    root :to => 'passthrough#minirouter'
+    root :to => 'passthrough#minirouter' # Look up the PassthroughController
   end
 
   devise_scope :user do
