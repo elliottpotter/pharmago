@@ -4,4 +4,3 @@ class DriversController < ApplicationController
     @orders = @driver.orders
   end
 end
-
