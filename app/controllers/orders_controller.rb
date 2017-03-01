@@ -10,14 +10,17 @@ class OrdersController < ApplicationController
 
   def new
     @order          = current_user.customer.orders.build
-    @product        = Product.new
-    @order_product  = @order.order_products.build
+    @products       = Product.all
+    3.times         { @order.order_products.build }
   end
 
   def create
+    raise
+    @order = current_user.customer.orders.create(order_params)
+    redirect_to order_path(@order)
   end
 
-    def order_product_params
-    params.require(:order).permit(order_products_attributes: [:quantity, product_attributes: [:name]])
+  def order_params
+    params.require(:order).permit(order_products_attributes: [:quantity, :product_id, products_attributes: [:name]])
   end
 end
