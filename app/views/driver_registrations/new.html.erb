@@ -4,7 +4,7 @@
     <h2>Order prescreption drugs with <strong> one </strong>click</h2>
     <h3 style="padding-bottom: 10px;">Sign up to our service</h3>
     <div style="padding-left: 50px; padding-right: 50px;">
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= simple_form_for(User.new, as: :user, url: registration_path(:user)) do |f| %>
       <%= f.error_notification %>
 
       <div class="form-inputs">
@@ -14,7 +14,7 @@
       </div>
 
       <div class="form-actions" style="padding-bottom: 10px;">
-        <%= f.button :submit, "Sign up as a customer" %>
+        <%= f.button :submit, "Sign up as a driver" %>
       </div>
       <% end %>
     </div>

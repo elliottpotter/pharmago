@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     root to: "users/registrations#new"
   end
 
+  get 'drivers/new', to: 'driver_registrations#new'
+  post 'drivers', to: 'driver_registrations#create'
+
   devise_for :users, :controllers => { :registrations => "users/registrations" }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :order_products, only: [ :index, :show, :new, :create ] do

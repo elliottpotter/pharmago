@@ -15,7 +15,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    raise
     @order = current_user.customer.orders.create(order_params)
     redirect_to order_path(@order)
   end
