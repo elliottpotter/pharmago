@@ -1,11 +1,9 @@
 <h1> hello </h1>
 
-<%= form_for(order_product) do |form| %>
-  How many? : <%= form.text_field :quantity %>
-
-  <%= form.fields_for product do |fform| %>
-    Product name : <%= fform.text_field :name %>
-
-  <% end %>
+<%= form_for(order) do |form| %>
+  <%= form.fields_for :order_products, @order.order_products do |fform| %>
+    <%= fform.select :product_id, @products.map {|p| [p.name, p.id]}  %>
+      How many? : <%= fform.text_field :quantity %>
+    <% end %>
   <%= form.button :submit %>
 <% end %>

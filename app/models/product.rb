@@ -1,3 +1,15 @@
 class Product < ApplicationRecord
-  belongs_to :order_product
+  has_many :order_products
+  has_many :orders, through: :order_products
+
+  def to_s
+    name
+  end
+
+  private
+
+  def product_params
+    params.require(:product).permit(:name)
+  end
+
 end
