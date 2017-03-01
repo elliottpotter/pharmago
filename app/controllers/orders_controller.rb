@@ -9,11 +9,15 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @order          = Order.new
-    @order_product  = Product.new
-    #@order_product  = OrderProduct.new
+    @order          = current_user.customer.orders.build
+    @product        = Product.new
+    @order_product  = @order.order_products.build
   end
 
   def create
+  end
+
+    def order_product_params
+    params.require(:order).permit(order_products_attributes: [:quantity, product_attributes: [:name]])
   end
 end

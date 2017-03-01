@@ -1,19 +1,11 @@
 <h1> hello </h1>
 
-    <%= form_for(product) do |form| %>
-      <%= form.text_field :name %>
-      <% order_products.each do |order_product| %>
-        <%= fields_for order_product  do |ff| %>
+<%= form_for(order_product) do |form| %>
+  How many? : <%= form.text_field :quantity %>
 
-        <% end %>
-      <% end %>
-      <%= form.button :submit %>
-    <% end %>
+  <%= form.fields_for product do |fform| %>
+    Product name : <%= fform.text_field :name %>
 
-
-    <!-- Including Bootstrap JS (with its jQuery dependency) so that dynamic components work -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="js/app.js"></script>
-  </body>
-</html>
+  <% end %>
+  <%= form.button :submit %>
+<% end %>

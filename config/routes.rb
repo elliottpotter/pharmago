@@ -6,8 +6,14 @@ Rails.application.routes.draw do
   resources :order_products, only: [ :index, :show, :new, :create ] do
     resources :products, only: :create
   end
-  resources :products, only: [ :index, :show, :new, :create ]
-  resources :orders, only: [ :index, :show, :new, :create ]
+  resources :products, only: [ :index, :show, :new, :create ] do
+    resources :order_products, only: [ :index, :show, :new, :create ]
+  end
+  resources :orders, only: [ :index, :show, :new, :create ] do
+    resources :order_products, only: [ :index, :show, :new, :create ] do
+      resources :products, only: [ :index, :show, :new, :create ]
+    end
+  end
   resources :customers, only: [ :show]
 end
 

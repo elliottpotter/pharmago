@@ -5,8 +5,13 @@ class ProductsController < ApplicationController
   end
 
   def create
-    Product.create(params[:product])
-    #raise
+    Product.create(product_params)
+  end
+
+  private
+
+  def product_params
+    params.require(:product).permit(:name)
   end
 
 end
