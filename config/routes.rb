@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
+
+
   authenticated :user do
-    root 'customers#show', as: :authenticated_root
+    root :to => 'passthrough#minirouter'
   end
 
   devise_scope :user do
@@ -22,5 +24,7 @@ Rails.application.routes.draw do
     end
   end
   resources :customers, only: [ :show]
+  resources :drivers, only: [ :show]
 end
+
 
