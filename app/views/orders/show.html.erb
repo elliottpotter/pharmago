@@ -1,1 +1,9 @@
-<h1><%= @order.id %></h1>
+<h1>Your Order</h1>
+
+<h3> <%= @order.id %></h3>
+<h3>Your driver is: <%= @order.driver_id %></h3>
+<ul>
+  <% @order.products.each do |order| %>
+    <li><%= order.name %></li>
+  <% end %>
+</ul>
