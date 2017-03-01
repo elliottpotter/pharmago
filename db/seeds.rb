@@ -3,18 +3,19 @@
 20.times do
 
     # Create customers
-  1.times do
-    user                     = User.new
-    user.email               = Faker::Internet.email
-    user.password            = Faker::Internet.password.to_s
-    user.save!
     1.times do
-      customer               = Customer.new
-      customer.user          = user
-      customer.phone_number  = Faker::PhoneNumber.phone_number
-      customer.save!
+      user                     = User.new
+      user.email               = Faker::Internet.email
+      user.password            = Faker::Internet.password.to_s
+      user.save!
+      user.admin               = false
+      1.times do
+        customer               = Customer.new
+        customer.user          = user
+        customer.phone_number  = Faker::PhoneNumber.phone_number
+        customer.save!
+      end
     end
-  end
 
   # Create Drivers
   1.times do
@@ -22,6 +23,7 @@
     user.email              = Faker::Internet.email
     user.password           = Faker::Internet.password.to_s
     user.save!
+    user.admin              = false
     1.times do
       driver                = Driver.new
       driver.user           = user

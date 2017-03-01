@@ -1,15 +1,1 @@
 <h1><%= @order.id %></h1>
-<h2>
-  <%= pluralize @order.order_products.size, "order" %>
-</h2>
-
-<div id="order_products">
-  <% if @order.order_products.blank? %>
-    Get started by making your first order
-  <% else %>
-    <% @order.order_products.each do |order| %>
-      <%= render '/', order_product: order_product %>
-    <% end %>
-  <% end %>
-</div>
-
