@@ -5,7 +5,6 @@ class OrdersController < ApplicationController
 
   def show
     @order          = Order.find(params[:id])
-    @order          = Order.new
   end
 
   def new
@@ -15,7 +14,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    raise
     @order = current_user.customer.orders.create(order_params)
     redirect_to order_path(@order)
   end
