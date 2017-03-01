@@ -1,8 +1,12 @@
-<div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url( <%= image_path('doctor.jpg') %> );">
+<div class="banner" style="background: linear-gradient(-225deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.2) 50%), url( <%= image_path('doctor.jpg') %> );">
+
   <div class="login test">
-    <h1 style="font-size: 50px;">Pharmago</h1>
-    <h2>Order prescreption drugs with <strong> one </strong>click</h2>
-    <h3 style="padding-bottom: 10px;">Welcome back!</h3>
+    <%= image_tag 'pharmago', id: 'logo'  %>
+    <br>
+    <br>
+    <h4 style="font-size: 20px;">Order prescription drugs with <strong> one </strong>click</h4>
+    <!-- <h4 style="padding-bottom: 10px;">Enter your email to get started</h4> -->
+    <br>
     <div style="padding-left: 50px; padding-right: 50px;">
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
