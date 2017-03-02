@@ -1,1 +1,30 @@
-<h1> Drivers profile</h1>
+<h1> Drivers profile </h1>
+
+<div class="switch">
+    <input type="checkbox" value="None" id="switch" name="check" checked />
+    <label for="switch"></label>
+</div>
+
+
+
+<% content_for(:after_js) do %>
+  <script>
+    $(document).ready(function() {
+
+      $('#switch').removeAttr('checked');
+
+      var status = '<%= @driver.status %>';
+      console.log(status);
+      console.log(<% @driver %> );
+
+      function activeStateForCheckbox(status) {
+        if ( status == "active" ) {
+          $('#switch').prop("checked", !$('#switch').prop("checked"));
+        }
+      }
+
+      activeStateForCheckbox(status);
+
+    });
+  </script>
+<% end %>

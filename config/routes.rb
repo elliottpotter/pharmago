@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   get 'drivers/new', to: 'driver_registrations#new'
+  get 'drivers/switch', to: 'drivers#switch'
   post 'drivers', to: 'driver_registrations#create'
 
   devise_for :users, :controllers => { :registrations => "users/registrations" }
@@ -25,7 +26,7 @@ Rails.application.routes.draw do
     end
   end
   resources :customers, only: [ :show]
-  resources :drivers, only: [ :show]
+  resources :drivers, only: [ :show ]
 end
 
 

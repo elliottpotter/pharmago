@@ -34,6 +34,10 @@ class ApplicationPolicy
     true
   end
 
+  def switch?
+    scope.where(:id => record.id).exists?
+  end
+
   def scope
     Pundit.policy_scope!(user, record.class)
   end
