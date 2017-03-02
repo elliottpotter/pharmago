@@ -58,12 +58,11 @@
 
 /* Navbar right button */
 .navbar-wagon-button {
-  align: left;
   margin-left: 10px;
   padding: 0 20px;
   border-radius: 20em;
   line-height: 40px;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(256, 256, 256, 0.9);
   color: #696C6D;
   font-size: 14px;
   border: 2px solid #696C6D;
@@ -137,4 +136,8 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+.btn-right {
+margin-right: 10px;
 }
