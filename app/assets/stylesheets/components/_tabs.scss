@@ -9,35 +9,29 @@
 .tabs a:hover {
   cursor: pointer;
   text-decoration: none;
-  opacity: 0.8;
 }
-.tabs h3 {
-  font-size: 17px;
+.tabs h4 {
+  font-size: 11px;
   font-weight: bold;
-  margin: 0;
-}
-.tabs p {
-  opacity: 0.5;
-  margin-bottom: 0;
+  margin: 5px 0;
 }
 .tab {
-  background: #3BB045;
+  background: white;
+  color: #01939A;
   flex: 1 1 auto;
   text-align: center;
-  padding: 20px 0;
-}
-.tab:first-child {
-  border-radius: 10px 0 0 10px;
-}
-.tab:last-child {
-  border-radius: 0 10px 10px 0;
+  padding: 0;
+  border: 1px solid #F0EFEC;
 }
 .tab.active {
   background: #7EFF76;
   color: black;
 }
+
 .tab-content {
-  padding-top: 50px;
+  padding-top: 30px;
+  padding-left: 30px;
+
 }
 .tab-content p {
   font-size: 30px;

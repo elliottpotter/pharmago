@@ -1,30 +1,28 @@
-<!-- <div class="profile-header-wrapper"> -->
-  <div class="container profile-header-container text-center">
-    <div class="profile-header-infos">
+<div class="dashboard-wrapper">
+  <div class="row">
+    <div class="tabs-container col-xs-3 col-xs-offset-1">
+      <div class="tab active" data-target="#orders"> <!-- lav underDivs se instacart -->
+        <h4>Orders</h4>
+      </div>
+      <div class="tab" data-target="#profile">
+        <h4>Profile</h4>
+      </div>
+      <div class="tab" data-target="#History">
+        <h4>History</h4>
+      </div>
     </div>
-    <div class="tabs">
-    <a class="tab active" data-target="#orders">
-        <h3>Orders</h3>
-      </a>
-      <a class="tab" data-target="#profile">
-        <h3>Profile</h3>
-      </a>
-      <a class="tab" data-target="#History">
-        <h3>History</h3>
-      </a>
-    </div>
-  </div>
-<!-- </div> -->
 
-<div class="container text-center">
-  <div class="tab-content" id="orders">
-    <%= render 'customer_orders_show.html.erb', orders: @orders, customer: @customer %>
-  </div>
-  <div class="tab-content hidden" id="profile">
-    <%= render 'customer_profile_show.html.erb', customer: @customer %>
-  </div>
-  <div class="tab-content hidden" id="History">
-    <%= render 'customer_history_show.html.erb', customer: @customer %>
+    <div class="context-container col-xs-7 ">
+        <div class="tab-content" id="orders">
+          <%= render 'customer_orders_show.html.erb', orders: @orders, customer: @customer %>
+        </div>
+        <div class="tab-content hidden" id="profile">
+          <%= render 'customer_profile_show.html.erb', customer: @customer %>
+        </div>
+        <div class="tab-content hidden" id="History">
+          <%= render 'customer_history_show.html.erb', customer: @customer %>
+        </div>
+    </div>
   </div>
 </div>
 
