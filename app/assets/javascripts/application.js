@@ -4,6 +4,10 @@
 //= require_tree .
 $(function(){
 
+  setTimeout(function(){
+    $('.alert').slideUp( "slow", function() {
+  });;
+  }, 5000);
 
 });
 
