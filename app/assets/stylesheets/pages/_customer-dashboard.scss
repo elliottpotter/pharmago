@@ -1,12 +1,19 @@
 .dashboard-wrapper{
   background-color: #f7f7f7;
-  height: 999px;
+  height:     auto;       /* These two lines were the key. */
+  min-height: 900px;
 }
 .tabs-container {
   // background-color: white;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 .context-container {
-  background-color: green;
-  margin-top: 60px;
+  background-color: white;
+  margin-top: 40px;
+  border-radius: 6px;
+
 }
+.dashboard-arrow{
+  text-align: right;
+}
+
