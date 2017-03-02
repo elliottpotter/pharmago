@@ -1,10 +1,10 @@
-<h1> Your orders </h1>
+<h3> Your orders </h3>
 <% orders.each do |order| %>
   <div>
-    <h3> Order-id: <%= order.id  %> </h3>
-    <h3> Order -  status: <%= order.status %> </h3>
-    <h3> delivery date: <%= order.delivery_date %> </h3>
-    <h3> <%= link_to "See Order", order_path(order) %></h3>
+    <h5> Order-id: <%= order.id  %> </h5>
+    <h5> Order -  status: <%= order.status %> </h5>
+    <h5> delivery date: <%= order.delivery_date %> </h5>
+    <h5> <%= link_to "See Order", order_path(order) %></h5>
   </div>
 <% end %>
 <h3> <%= link_to "New Order", new_order_path %></h3>
