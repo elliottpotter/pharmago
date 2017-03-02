@@ -1,10 +1,12 @@
-<% navbar_classes = %w(registrations passwords sessions).include?(controller_name) ? "navbar-wagon navbar-transparent" : "navbar-wagon navbar-opaque"  %>
+<% navbar_classes = %w(registrations passwords sessions driver_registrations).include?(controller_name) ? "navbar-wagon navbar-transparent" : "navbar-wagon navbar-opaque"  %>
 
 <div class="<%= navbar_classes %>">
   <!-- Logo -->
-  <div class="navbar-wagon-left">
-  <%= link_to t(".top_call_to_action", default: "Become a driver"), drivers_new_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
-  </div>
+
+    <a href="/" class="navbar-wagon-brand">
+    <%= image_tag "logo1.png" %>
+    </a>
+
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -32,9 +34,15 @@
           <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-              <% end %>
+              <% if current_user.customer.present? %>
+                <%= link_to customer_path(current_user) do %>
+                  <i class="fa fa-user"></i> <%= t(".profile", default: "Dashboard") %>
+                <% end %>
+              <% else %>
+                <%= link_to driver_path(current_user) do %>
+                  <i class="fa fa-user"></i> <%= t(".profile", default: "Dashboard") %>
+                <% end %>
+              <% end  %>
             </li>
             <li>
               <%= link_to "#" do %>

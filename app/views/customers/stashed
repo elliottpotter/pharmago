@@ -1,0 +1,52 @@
+<!-- <div class="profile-header-wrapper"> -->
+  <div class="container profile-header-container text-center">
+    <div class="profile-header-infos">
+    </div>
+    <div class="tabs">
+    <a class="tab active" data-target="#orders">
+        <h3>Orders</h3>
+      </a>
+      <a class="tab" data-target="#profile">
+        <h3>Profile</h3>
+      </a>
+      <a class="tab" data-target="#History">
+        <h3>History</h3>
+      </a>
+    </div>
+  </div>
+<!-- </div> -->
+
+<div class="container text-center">
+  <div class="tab-content" id="orders">
+    <%= render 'customer_orders_show.html.erb', orders: @orders, customer: @customer %>
+  </div>
+  <div class="tab-content hidden" id="profile">
+    <%= render 'customer_profile_show.html.erb', customer: @customer %>
+  </div>
+  <div class="tab-content hidden" id="History">
+    <%= render 'customer_history_show.html.erb', customer: @customer %>
+  </div>
+</div>
+
+<% content_for(:after_js) do %>
+
+<script>
+  $(document).ready(function () {
+    $(function(){
+
+      $(".tab").on("click", function(e){
+        // Change active tab
+        $('.tab').removeClass('active')
+        $(this).addClass('active')
+
+        // Hide all tab-content (use class="hidden")
+        $('.tab-content').addClass('hidden')
+
+        // Show target tab-content (use class="hidden")
+        var id = $(".active").data("target")
+        $(id).removeClass('hidden')
+      });
+    });
+  });
+</script>
+<% end %>

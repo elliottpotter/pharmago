@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <title><%= Pharmago %></title>
+  <%= csrf_meta_tags %>
+  <%= action_cable_meta_tag %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+
+
+
+</head>
+<body>
+  <% navbar_classes = %w(registrations passwords sessions driver_registrations).include?(controller_name) ? "navbar-wagon navbar-transparent" : "navbar-wagon navbar-opaque"  %>
+
+  <div class="<%= navbar_classes %>">
+
+    <div class="navbar-wagon-right hidden-xs hidden-sm">
+      <div>
+        <%= link_to t(".top_call_to_action", default: "Be a Customer"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+      </div>
+    </div>
+
+  </div>
+  <%= render 'shared/flashes' %>
+  <%= yield %>
+  <%= javascript_include_tag 'application' %>
+  <%= yield(:after_js) %>
+</body>
+</html>
+
