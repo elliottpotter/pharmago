@@ -5,7 +5,12 @@ class DriverPolicy < ApplicationPolicy
     end
 
     def show?
-    true
+      true
     end
+
+    def switch?
+      true
+    end
+
   end
 end
