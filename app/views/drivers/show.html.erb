@@ -1,30 +1,33 @@
-<!-- <div class="profile-header-wrapper"> -->
-  <div class="container profile-header-container text-center">
-    <div class="profile-header-infos">
+<div class="dashboard-wrapper">
+  <div class="row">
+    <div class="tabs-container col-xs-3 col-xs-offset-1">
+      <div class="tab active" data-target="#orders"> <!-- lav underDivs se instacart -->
+        <div class ="col-xs-1"><i class="fa fa-ambulance" aria-hidden="true"></i></div>
+        <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Avaliable Orders</h4></div>
+        <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
+      </div>
+      <div class="tab" data-target="#profile">
+        <div class ="col-xs-1"><i class="fa fa-user" aria-hidden="true"></i></div>
+        <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Profile</h4></div>
+        <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
+      </div>
+      <div class="tab" data-target="#History">
+        <div class ="col-xs-1"><i class="fa fa-list" aria-hidden="true"></i></div>
+        <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Order History</h4></div>
+        <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
+      </div>
     </div>
-    <div class="tabs">
-    <a class="tab active" data-target="#current-orders">
-        <h3>Orders</h3>
-      </a>
-      <a class="tab" data-target="#profile">
-        <h3>Profile</h3>
-      </a>
-      <a class="tab" data-target="#History">
-        <h3>History</h3>
-      </a>
+    <div class="context-container col-xs-7 ">
+        <div class="tab-content" id="orders">
+          <%= render 'driver_orders_show.html.erb', orders: @orders, driver: @driver %>
+        </div>
+        <div class="tab-content hidden" id="profile">
+          <%= render 'driver_profile_show.html.erb', driver: @driver %>
+        </div>
+        <div class="tab-content hidden" id="History">
+          <%= render 'driver_history_show.html.erb', driver: @driver %>
+        </div>
     </div>
-  </div>
-<!-- </div> -->
-
-<div class="container text-center">
-  <div class="tab-content" id="current-orders">
-    <%= render 'driver_orders_show.html.erb', orders: @orders, driver: @driver %>
-  </div>
-  <div class="tab-content hidden" id="profile">
-    <%= render 'driver_profile_show.html.erb', driver: @driver %>
-  </div>
-  <div class="tab-content hidden" id="History">
-    <%= render 'driver_history_show.html.erb', driver: @driver %>
   </div>
 </div>
 

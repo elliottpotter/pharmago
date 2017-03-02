@@ -3,7 +3,7 @@
     <div class="profile-header-infos">
     </div>
     <div class="tabs">
-    <a class="tab active" data-target="#orders">
+    <a class="tab active" data-target="#current-orders">
         <h3>Orders</h3>
       </a>
       <a class="tab" data-target="#profile">
@@ -17,14 +17,14 @@
 <!-- </div> -->
 
 <div class="container text-center">
-  <div class="tab-content" id="orders">
-    <%= render 'customer_orders_show.html.erb', orders: @orders, customer: @customer %>
+  <div class="tab-content" id="current-orders">
+    <%= render 'driver_orders_show.html.erb', orders: @orders, driver: @driver %>
   </div>
   <div class="tab-content hidden" id="profile">
-    <%= render 'customer_profile_show.html.erb', customer: @customer %>
+    <%= render 'driver_profile_show.html.erb', driver: @driver %>
   </div>
   <div class="tab-content hidden" id="History">
-    <%= render 'customer_history_show.html.erb', customer: @customer %>
+    <%= render 'driver_history_show.html.erb', driver: @driver %>
   </div>
 </div>
 
