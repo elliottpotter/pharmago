@@ -17,7 +17,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'aasm'
-
+gem 'authy'
 gem "pundit"
 
 # Our gems
