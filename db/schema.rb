@@ -28,8 +28,6 @@ ActiveRecord::Schema.define(version: 20170302162703) do
     t.string   "phone_number"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.string   "first_name"
-    t.string   "last_name"
     t.index ["user_id"], name: "index_customers_on_user_id", using: :btree
   end
 
@@ -40,8 +38,6 @@ ActiveRecord::Schema.define(version: 20170302162703) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "status"
-    t.string   "first_name"
-    t.string   "last_name"
     t.index ["user_id"], name: "index_drivers_on_user_id", using: :btree
   end
 
