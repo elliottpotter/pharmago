@@ -1,6 +1,6 @@
 $(function(){
-  $('#switch').click(function(){
-    switchDriver();
+  $('#order-claim').click(function(){
+    claimOrder();
   });
 
 });
@@ -9,9 +9,9 @@ $(function(){
 function switchDriver() {
   $.ajax({
     type:'GET',
-    url:'/drivers/switch',
+    url:'/orders/claim',
     success:function(){
       console.log("Done");
     }
-    });
-  }
+  });
+}

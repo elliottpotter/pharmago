@@ -1,1 +1,14 @@
-<h3> Drivers.dashboard.org</h3>
+<% if @available_orders.length > 0 %>
+
+  <h1 class="center"> All Currently Available orders </h1>
+  <% @available_orders.each do |available_order| %>
+    <div id="container-<%= available_order.id %>">
+      <%= render "shared/order_card", order: available_order %>
+    </div>
+  <% end %>
+
+<% else %>
+
+  <h1 class="center"> No orders currently available </h1>
+<% end %>
+
