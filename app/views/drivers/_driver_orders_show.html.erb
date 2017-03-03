@@ -1,1 +1,10 @@
-<h3> Drivers.dashboard.org</h3>
+
+
+
+
+<% @available_orders.each do |available_order| %>
+  <div>
+    <%= render "shared/order_card", order: available_order %>
+  </div>
+<% end %>
+
