@@ -20,8 +20,13 @@ class OrderPolicy < ApplicationPolicy
       true
     end
 
+    def claim?
+      true
+    end
+
     def order_params?
       true
     end
+
   end
 end

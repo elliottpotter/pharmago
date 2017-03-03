@@ -1,0 +1,59 @@
+<div id="confirm-<%= order.id %>" class="confirmation-content">
+    Are you sure?
+
+    <span onclick="claimOrder('<%= order.id %>');" class="btn btn-success order-claim" style="color: white;">
+      YES
+    </span>
+
+    <span id="<%= order.id %>" onclick="hideThis('<%= order.id %>');" class="btn btn-danger order-claim" style="color: white;">
+      NO
+    </span>
+
+</div>
+
+<div id="card-<%= order.id %>" class="order-card">
+  <div class="order-info">
+    <%= order.customer.user.email %>
+  </div>
+
+  <div class="order-interaction">
+    <span onclick="showConfirmation('<%= order.id %>');" class="btn btn-success">Claim order</span>
+  </div>
+</div>
+
+
+<% content_for(:after_js) do %>
+  <script>
+
+    // define functions below
+    function claimOrder(id) {
+      $.ajax({
+        type:'GET',
+        url:'/orders/claim',
+        data: { id: id },
+        success:function(){
+          console.log("Done");
+        }
+      });
+      $('#' + 'confirm-' + id).hide();
+      $('#' + 'container-' + id).slideUp();
+    }
+
+    $('.confirmation-content').hide();
+
+    function showConfirmation(id) {
+      $('#' + 'confirm-' + id).fadeIn();
+      $('#' + 'card-' + id).addClass('fade');
+    }
+
+    function hideThis(id) {
+      $("#" + id).parent('div').hide();
+      $('#' + 'card-' + id).removeClass('fade');
+    }
+
+    function showThis(id) {
+      $("#" + id).parent('div').fadeIn();
+    }
+
+  </script>
+<% end %>
