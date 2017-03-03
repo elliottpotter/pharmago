@@ -1,9 +1,5 @@
-
-
-
-
 <% @available_orders.each do |available_order| %>
-  <div>
+  <div id="container-<%= available_order.id %>">
     <%= render "shared/order_card", order: available_order %>
   </div>
 <% end %>
