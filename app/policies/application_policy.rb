@@ -34,6 +34,10 @@ class ApplicationPolicy
     true
   end
 
+  def claim?
+    true
+  end
+
   def switch?
     scope.where(:id => record.id).exists?
   end

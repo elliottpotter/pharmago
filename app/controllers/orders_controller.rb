@@ -22,7 +22,17 @@ class OrdersController < ApplicationController
     authorize @order
   end
 
+  def claim
+    @order          = Order.find(params[:id])
+    @order.claim!
+    @order.driver   = current_user.driver
+    @order.save!
+    authorize @order
+  end
+
+  private
+
   def order_params
-    params.require(:order).permit(order_products_attributes: [ :quantity, :product_id, products_attributes: [:name] ])
+    params.require(:order).permit(:id, order_products_attributes: [ :quantity, :product_id, products_attributes: [:name] ])
   end
 end
