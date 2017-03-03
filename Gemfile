@@ -22,6 +22,7 @@ gem "pundit"
 
 # Our gems
 gem 'faker'
+gem "jquery-slick-rails"
 
 
 group :development, :test do
