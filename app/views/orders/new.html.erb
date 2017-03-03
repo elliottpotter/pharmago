@@ -1,11 +1,45 @@
-<div class="index-banner" style="background: url( <%= image_path('shoppingbanner2.jpg') %> );">
-  <div class="banner-content">
-    <h2>Shop till you drop <3</h2>
+
+<div class="shopping-page-wrapper">
+  <div style="padding-top: 20px; margin: 40px;">
+    <h2>Most bought</h2>
+    <div class ="your-class" id="order-display">
+      <% @products.each do |product| %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://www.placecage.com/c/200/300');">
+        <div class="card-category"> id: <%= product.id %> </div>
+        <div class="card-description">
+          <h2><%= product.name %></h2>
+          <p> product description / price</p>
+        </div>
+        <!-- <img class="card-user avatar" src=""> -->
+        <a class="card-link" href="#" ></a>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
-<div style="padding-top: 20px; margin: 40px;">
-  <div class="shopping-page-wrapper">
+<div class="shopping-page-wrapper">
+  <div style="padding-top: 20px; margin: 40px;">
+  <h2>Painkillers</h2>
+    <div class ="your-class" id="order-display">
+      <% @products.each do |product| %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://www.placecage.com/c/200/300');">
+        <div class="card-category"> id: <%= product.id %> </div>
+        <div class="card-description">
+          <h2><%= product.name %></h2>
+          <p> product description / price</p>
+        </div>
+        <!-- <img class="card-user avatar" src=""> -->
+        <a class="card-link" href="#" ></a>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="shopping-page-wrapper">
+  <div style="padding-top: 20px; margin: 40px;">
+  <h2>Allergies</h2>
     <div class ="your-class" id="order-display">
       <% @products.each do |product| %>
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://www.placecage.com/c/200/300');">

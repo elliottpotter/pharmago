@@ -8,16 +8,15 @@ $(function(){
 
   setTimeout(function(){
     $('.alert').slideUp( "slow", function() {
-  });;
+    });;
   }, 5000);
 
- $('.your-class').slick({
+  $('.your-class').slick({
     infinite: true,
     slidesToShow: 6,
     slidesToScroll: 3,
     centerMode: true,
     centerPadding: '0px',
-    dots: true,
     arrows: true
   });
 
