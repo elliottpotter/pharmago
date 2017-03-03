@@ -45,7 +45,6 @@
 
   1.times do
     order                    = Order.new
-    order.status             = [].sample
     order.delivered_at       = Time.now
     order.customer           = Customer.last
     order.driver             = Driver.last
