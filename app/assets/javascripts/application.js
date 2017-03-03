@@ -1,8 +1,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require_tree .
 //= require jquery.slick
+//= require_tree .
 
 $(function(){
 
@@ -11,17 +11,17 @@ $(function(){
   });;
   }, 5000);
 
-  $(document).ready(function(){
-    $('.slick-cards').slick({
-    infinite: false,
+ $('.your-class').slick({
+    infinite: true,
     slidesToShow: 6,
-    slidesToScroll: 6,
+    slidesToScroll: 3,
+    centerMode: true,
     centerPadding: '0px',
-    arrows: true,
-    });
-    $('.slick-next').addClass('fa').addClass('fa-arrow-right')
-    $('.slick-prev').addClass('fa').addClass('fa-arrow-left')
+    dots: true,
+    arrows: true
   });
+
+  $('.slick-arrow').addClass('fa').addClass('fa-arrow-right')
 
 });
 
