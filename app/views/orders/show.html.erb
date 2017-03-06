@@ -1,37 +1,86 @@
-<h1>Orders#show</h1>
-<h3> <%= @order.id %></h3>
-<h3>Your driver is: </h3>
-<ul>
+<div class="col-xs-4 col-xs-offset-4 text-center">
+  <h1>Orders#show</h1>
+  <br>
+  <h3> Order-ID: <%= @order.id %></h3>
+  <ul>
 
-  <% @order.products.each do |product| %>
-    <li><%= product.name %></li>
-  <% end %>
-</ul>
+  <h3> Products in cart:</h3>
+    <% @order.products.each do |product| %>
+      <li><%= product.name %></li>
+    <% end %>
+  </ul>
+  <div>
+    <% if current_user.customer.customer_addresses.empty? %>
+      <div id="order-address-form">
+        <h4> Please enter delivery address:</h4>
+        <%= simple_form_for @customer_address, url: customer_customer_addresses_path(@customer), remote: true do |f| %>
+          <%= f.input :address %>
+          <%= f.submit "add address", class: "btn btn-primary", id: "address-submit" %>
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <h3 id="checkout-address">Delivery address</h3>
+        <h4> <%= current_user.customer.customer_addresses.last.address %> </h4>
+        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#EditAddressModal">
+          Update
+        </button>
+      </div>
+    <% end %>
+  </div>
+  <br>
+  <div>
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ConfirmModal">
+    Review and place order
+  </button>
+  </div>
+</div>
 
-<h4>Delivery address:</h4>
-<% if @customer_addresses.empty? %>
-  <h4> Please enter delivery address:</h4>
-  <%= simple_form_for @customer_address, url: customer_customer_addresses_path(@customer), remote: true do |f| %>
-    <%= f.input :address %>
-    <%= f.submit "add address", class: "btn btn-primary", id: "address-submit" %>
-  <% end %>
-<% else %>
-    <h3>Deliver to this address?</h3>
-  <%= @customer_addresses.first.address %>
-<% end %>
+<!-- Modal -->
+<div class="modal fade(1000) text-center" id="ConfirmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Review</h4>
+      </div>
+      <div class="modal-body">
+      <div class="text-center">
+      <h4>Products:</h4>
+      <% @order.products.each do |product| %>
+       <li><%= product.name %></li>
+      <% end %>
+      <h4> Address: <%= @current_user.customer.customer_addresses.last.address %> </h4>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-default" data-dismiss="modal"></button> -->
+        <button type="button" class="btn btn-success col-xs-12">Confirm</button>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
 
-<!-- <script>
-  $( "#address-submit").click({
-    function addAddress(address) {
-        $.ajax({
-          type:'POST',
-          url:'/customer_addresses/create',
-          data: { address: address },
-          success:function(){
-            console.log("Done");
-          }
-        });
-      }
-    });
-</script>
- -->
+<div class="modal fade(1000) text-center" id="EditAddressModal" tabindex="-1" role="dialog" aria-labelledby="testLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Review</h4>
+      </div>
+      <div class="modal-body">
+      <div class="text-center">
+      <h3>Enter delivery address</h3>
+        <%= simple_form_for @customer_address, url: customer_customer_addresses_path(@customer), remote: true do |f| %>
+          <%= f.input :address %>
+          <%= f.submit "Update address", class: "btn btn-success", id: "address-submit" %>
+        <% end %>
+      </div>
+      <!-- <div class="modal-footer"> -->
+        <!-- <button type="button" class="btn btn-default" data-dismiss="modal"></button> -->
+        <!-- <button type="button" class="btn btn-success">Confirm</button> -->
+      <!-- </div> -->
+    </div>
+    </div>
+  </div>
+</div>
