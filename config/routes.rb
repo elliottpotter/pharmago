@@ -1,15 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'subscriptions/create'
-
-  get 'subscriptions/edit'
-
-  get 'subscriptions/update'
-
-  get 'subscriptions/destroy'
-
-  get 'subscriptions/upgrade'
-
   authenticated :user do
     root :to => 'passthrough#minirouter' # Look up the PassthroughController
   end
@@ -27,10 +17,10 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => "users/registrations" }
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-    resources :order_products, only: [ :index, :show, :new, :create ] do
-      resources :products, only: :create
-    end
-  end
+    # resources :order_products, only: [ :index, :show, :new, :create ] do
+    #   resources :products, only: :create
+    # end
+
   resources :customers, only: [ :show]
   resources :drivers, only: [ :show ]
   resources :verification_codes
