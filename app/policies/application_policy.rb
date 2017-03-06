@@ -38,6 +38,10 @@ class ApplicationPolicy
     true
   end
 
+  def verify?
+    true
+  end
+
   def switch?
     scope.where(:id => record.id).exists?
   end

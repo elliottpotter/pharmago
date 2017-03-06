@@ -1,4 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+
+  require 'authy'
   before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
   layout 'signup_page', :only => [:new]
@@ -12,7 +14,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    params[:commit].match(/customer/) ? create_customer : create_driver
+    create_customer if params[:commit].match(/customer/)
   end
 
   def create_customer
@@ -21,6 +23,29 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create_driver
     Driver.create(user: @user)
+  end
+
+
+
+  def verify
+    @user = current_user
+
+    # Use Authy to send the verification token
+    token = Authy::API.verify(id: @user.authy_id, token: params[:token])
+
+    if token.ok?
+      # Mark the user as verified for get /user/:id
+      @user.update(verified: true)
+
+      # Send an SMS to the user 'success'
+      send_message("You did it! Signup complete :)")
+
+      # Show the user profile
+      redirect_to user_path(@user.id)
+    else
+      flash.now[:danger] = "Incorrect code, please try again"
+      render :show_verify
+    end
   end
   # GET /resource/edit
   # def edit
@@ -50,7 +75,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone_number, :country_code, :authy_id])
   end
 
   # If you have extra params to permit, append them to the sanitizer.

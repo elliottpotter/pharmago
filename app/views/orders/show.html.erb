@@ -3,7 +3,7 @@
 <h3> <%= @order.id %></h3>
 <h3>Your driver is: <%= @order.driver_id %></h3>
 <ul>
-  <% @order.products.each do |order| %>
-    <li><%= order.name %></li>
+  <% @order.products.each do |product| %>
+    <li><%= product.name %></li>
   <% end %>
 </ul>

@@ -8,4 +8,8 @@ class UserPolicy < ApplicationPolicy
   def minirouter?
     true
   end
+
+  def verify?
+    true
+  end
 end
