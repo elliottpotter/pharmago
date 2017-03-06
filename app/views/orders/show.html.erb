@@ -1,9 +1,37 @@
-<h1>Your Order</h1>
-
+<h1>Orders#show</h1>
 <h3> <%= @order.id %></h3>
-<h3>Your driver is: <%= @order.driver_id %></h3>
+<h3>Your driver is: </h3>
 <ul>
+  <h3>Products</h3>
   <% @order.products.each do |order| %>
     <li><%= order.name %></li>
   <% end %>
 </ul>
+
+<h4>Delivery address:</h4>
+<% if @customer_addresses.empty? %>
+  <h4> Please enter delivery address:</h4>
+  <%= simple_form_for @customer_address, url: customer_customer_addresses_path(@customer), remote: true do |f| %>
+    <%= f.input :address %>
+    <%= f.submit "add address", class: "btn btn-primary", id: "address-submit" %>
+  <% end %>
+<% else %>
+    <h3>Deliver to this address?</h3>
+  <%= @customer_addresses.first.address %>
+<% end %>
+
+<!-- <script>
+  $( "#address-submit").click({
+    function addAddress(address) {
+        $.ajax({
+          type:'POST',
+          url:'/customer_addresses/create',
+          data: { address: address },
+          success:function(){
+            console.log("Done");
+          }
+        });
+      }
+    });
+</script>
+ -->

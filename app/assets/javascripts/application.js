@@ -14,13 +14,13 @@ $(function(){
   $('.your-class').slick({
     infinite: true,
     slidesToShow: 6,
-    slidesToScroll: 3,
+    slidesToScroll: 6,
     centerMode: true,
     centerPadding: '0px',
     arrows: true
   });
 
-  $('.slick-arrow').addClass('fa').addClass('fa-arrow-right')
+  // $('.slick-arrow').addClass('fa').addClass('fa-arrow-right')
 
 });
 

@@ -1,6 +1,7 @@
-// .slick-prev:before, .slick-next:before {
-//     color: #ADCAD6 !important;
-// }
+.slick-prev:before, .slick-next:before {
+    color: red !important;
+    margin: 2px;
+}
   .slick-slide {
     margin: 0 20px;
   }
