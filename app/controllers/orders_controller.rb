@@ -6,6 +6,9 @@ class OrdersController < ApplicationController
 
   def show
     @order          = Order.find(params[:id])
+    @customer       = Customer.find(current_user.customer)
+    @customer_address = CustomerAddress.new
+    @customer_addresses = CustomerAddress.where(customer_id: current_user)
     authorize @order
   end
 
