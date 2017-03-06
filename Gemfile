@@ -17,6 +17,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'aasm'
+gem 'twilio-ruby', '~> 4.11.1'
 
 gem "pundit"
 

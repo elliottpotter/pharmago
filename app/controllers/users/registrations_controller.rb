@@ -12,7 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    params[:commit].match(/customer/) ? create_customer : create_driver
+    create_customer if params[:commit].match(/customer/)
   end
 
   def create_customer
@@ -20,7 +20,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_driver
-    Driver.create(user: @user)
+
   end
   # GET /resource/edit
   # def edit
