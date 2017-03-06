@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170304000035) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,14 +53,14 @@ ActiveRecord::Schema.define(version: 20170304000035) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string   "aasm_state",                            default: "unclaimed"
+    t.string   "aasm_state",    default: "unclaimed"
     t.date     "delivery_date"
     t.datetime "delivered_at"
-    t.decimal  "subtotal",      precision: 8, scale: 2
+    t.decimal  "subtotal"
     t.integer  "customer_id"
     t.integer  "driver_id"
-    t.datetime "created_at",                                                  null: false
-    t.datetime "updated_at",                                                  null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.index ["customer_id"], name: "index_orders_on_customer_id", using: :btree
     t.index ["driver_id"], name: "index_orders_on_driver_id", using: :btree
   end
@@ -91,6 +92,7 @@ ActiveRecord::Schema.define(version: 20170304000035) do
     t.string   "authy_id"
     t.boolean  "verified"
     t.string   "user_code"
+
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -111,5 +113,4 @@ ActiveRecord::Schema.define(version: 20170304000035) do
   add_foreign_key "order_products", "products"
   add_foreign_key "orders", "customers"
   add_foreign_key "orders", "drivers"
-  add_foreign_key "verification_codes", "users"
 end

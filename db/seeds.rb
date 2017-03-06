@@ -7,6 +7,10 @@
       user                     = User.new
       user.email               = Faker::Internet.email
       user.password            = Faker::Internet.password.to_s
+      user.first_name          = Faker::Name.first_name
+      user.last_name           = Faker::Name.last_name
+      user.country_code        = "+45"
+
       user.save!
       user.admin               = false
       1.times do
@@ -22,6 +26,9 @@
     user                    = User.new
     user.email              = Faker::Internet.email
     user.password           = Faker::Internet.password.to_s
+    user.first_name         = Faker::Name.first_name
+    user.last_name          = Faker::Name.last_name
+    user.country_code       = "+45"
     user.save!
     user.admin              = false
     1.times do
@@ -34,7 +41,6 @@
   end
 
   # Create products
-
   1.times do
     product                    = Product.new
     product.name               = Faker::Commerce.product_name
@@ -42,20 +48,18 @@
   end
 
   # Create orders
-
   1.times do
     order                    = Order.new
-    order.status             = [].sample
     order.delivered_at       = Time.now
     order.customer           = Customer.last
     order.driver             = Driver.last
     order.delivery_date      = Date.today
     order.subtotal           = rand(10..70)
+    order.aasm_state         = [ :claimed, :shopping, :processed, :delivered, :unclaimed ].sample
     order.save!
   end
 
   # Create order products
-
   1.times do
     order_product               = OrderProduct.new
     order_product.quantity      = [1, 2, 3, 4, 5].sample

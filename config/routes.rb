@@ -24,22 +24,26 @@ Rails.application.routes.draw do
   post 'drivers',               to: 'driver_registrations#create'
   get 'verification_codes/new', to: 'verification_codes#new'
 
+
   devise_for :users, :controllers => { :registrations => "users/registrations" }
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :order_products, only: [ :index, :show, :new, :create ] do
-    resources :products, only: :create
-  end
-  resources :products, only: [ :index, :show, :new, :create ] do
-    resources :order_products, only: [ :index, :show, :new, :create ]
-  end
-  resources :orders, only: [ :index, :show, :new, :create ] do
+    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     resources :order_products, only: [ :index, :show, :new, :create ] do
-      resources :products, only: [ :index, :show, :new, :create ]
+      resources :products, only: :create
     end
   end
   resources :customers, only: [ :show]
   resources :drivers, only: [ :show ]
   resources :verification_codes
+    resources :products, only: [ :index, :show, :new, :create ] do
+      resources :order_products, only: [ :index, :show, :new, :create ]
+    end
+    resources :orders, only: [ :index, :show, :new, :create ] do
+      resources :order_products, only: [ :index, :show, :new, :create ] do
+        resources :products, only: [ :index, :show, :new, :create ]
+      end
+    end
+    resources :customers, only: [ :show]
+    resources :drivers, only: [ :show ]
 end
 
 
