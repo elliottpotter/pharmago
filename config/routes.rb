@@ -8,18 +8,22 @@ Rails.application.routes.draw do
     root to: "users/registrations#new"
   end
 
-  get 'drivers/new',    to: 'driver_registrations#new'
-  get 'drivers/switch', to: 'drivers#switch'
-  get 'orders/claim',   to: 'orders#claim'
-  post 'drivers',       to: 'driver_registrations#create'
-  get 'orders/verify',  to: 'orders#verify'
+  get 'drivers/new',            to: 'driver_registrations#new'
+  get 'drivers/switch',         to: 'drivers#switch'
+  get 'orders/claim',           to: 'orders#claim'
+  post 'drivers',               to: 'driver_registrations#create'
+  get 'verification_codes/new', to: 'verification_codes#new'
 
 
   devise_for :users, :controllers => { :registrations => "users/registrations" }
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-    resources :order_products, only: [ :index, :show, :new, :create ] do
-      resources :products, only: :create
-    end
+    # resources :order_products, only: [ :index, :show, :new, :create ] do
+    #   resources :products, only: :create
+    # end
+
+  resources :customers, only: [ :show]
+  resources :drivers, only: [ :show ]
+  resources :verification_codes
     resources :products, only: [ :index, :show, :new, :create ] do
       resources :order_products, only: [ :index, :show, :new, :create ]
     end

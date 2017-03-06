@@ -15,7 +15,7 @@ $(function(){
     infinite: true,
     slidesToShow: 6,
     slidesToScroll: 6,
-    centerMode: true,
+    centerMode: false,
     centerPadding: '0px',
     arrows: true
   });

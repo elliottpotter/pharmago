@@ -1,6 +1,4 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-
-  require 'authy'
   before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
   layout 'signup_page', :only => [:new]
@@ -14,7 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    params[:commit].match(/customer/) ? create_customer : create_driver
+    create_customer if params[:commit].match(/customer/)
   end
 
   def create_customer
@@ -22,26 +20,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_driver
-    if @user.save
-      # Save the user_id to the session object
-      session[:user_id] = @user.id
-
-      # Create user on Authy, will return an id on the object
-      authy = Authy::API.register_user(
-        email: @user.email,
-        cellphone: @user.phone_number,
-        country_code: @user.country_code
-      )
-      @user.update(authy_id: authy.id)
-
-      # Send an SMS to your user
-      Authy::API.request_sms(id: @user.authy_id)
-      redirect_to verify_path
-
-    else
-      render :new
-    end
-
     Driver.create(user: @user)
   end
 

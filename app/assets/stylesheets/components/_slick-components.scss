@@ -1,9 +1,10 @@
 .slick-prev:before, .slick-next:before {
-    color: red !important;
-    margin: 2px;
+    color: #ADCAD6 !important;
 }
-  .slick-slide {
-    margin: 0 20px;
+  .slick-slider {
+    margin: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   /* the parent */
   .slick-list {
@@ -13,3 +14,18 @@
 // .fa-arrow-right:after{
 //   text: right;
 // }
+
+.card-link:hover {
+    opacity: 0.7;
+}
+
+.card-link {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    z-index: 2;
+    background: white;
+    opacity: 0;
+}
