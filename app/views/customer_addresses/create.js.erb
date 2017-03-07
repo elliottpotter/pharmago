@@ -1,0 +1,7 @@
+
+console.log('<%= current_user.customer.customer_addresses.last.address %>');
+$("#confirm-modal-address").html('<%= current_user.customer.customer_addresses.last.address %>');
+$("#front-customer-address").html('<%= current_user.customer.customer_addresses.last.address %>');
+
+$('#EditAddressModal').modal('hide');
+
