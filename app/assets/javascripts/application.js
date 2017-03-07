@@ -16,7 +16,7 @@ $(function(){
 
   $('.your-class').slick({
     infinite: true,
-    slidesToShow: 6,
+    slidesToShow: 4,
     slidesToScroll: 6,
     centerMode: false,
     centerPadding: '0px',
@@ -24,6 +24,25 @@ $(function(){
   });
 
   // $('.slick-arrow').addClass('fa').addClass('fa-arrow-right')
+
+
+var $el = $(".fadeinwords:first"), text = $el.text(),
+    words = text.split(" ");
+
+
+var html = "";
+for (var i = 0; i < words.length; i++) {
+    if(i < words.length - 1) {
+      html += "<span style='color: grey; font-size: 60px;'>" + words[i] + " </span>";
+    } else {
+     html += '<a style="font-size: 60px; text-decoration: none; color: #86DBB8;" href="/orders/new">here</a>'
+      // html += '<%= link_to "here", new_order_path %>'
+    }
+
+};
+$el.html(html).children().hide().each(function(i){
+  $(this).delay(i*300).fadeIn(700);
+});
 
 });
 

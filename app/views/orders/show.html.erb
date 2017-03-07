@@ -1,44 +1,47 @@
 <div class="dashboard-wrapper">
   <div class="row">
-  <h1 class="text-center">Order overview</h1>
-  <hr/>
+    <h1 class="text-center">Order overview</h1>
+    <hr/>
     <div class="col-xs-offset-2 col-xs-4">
       <div class="checkout-content-container">
-          <h3> Products in cart:</h3>
-          <hr/>
-          <% @order.products.each do |product| %>
-          <li><%= product.name %></li>
-          <% end %>
-        </ul>
-        </div>
-      </div>
-
-      <div class="col-xs-4">
-        <div class="checkout-content-container">
-          <% if current_user.customer.customer_addresses.empty? %>
-          <div id="order-address-form">
-            <h4> Please enter delivery address:</h4>
-            <%= simple_form_for @customer_address, url: customer_customer_addresses_path(@customer), remote: true do |f| %>
-            <%= f.input :address %>
-            <%= f.submit "add address", class: "btn btn-primary", id: "address-submit" %>
-            <% end %>
-          </div>
-          <% else %>
-          <div>
-            <h3 id="checkout-address">Delivery address:</h3>
-            <h4> <span id="front-customer-address"> <%= current_user.customer.customer_addresses.last.address %> </span> </h4>
-            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#EditAddressModal">
-              Change
-            </button>
-          </div>
-          <% end %>
-          <button type="button" class="btn btn-primary btn-md col-xs-12" data-toggle="modal" data-target="#ConfirmModal" id="confirm-modal-button">
-            Review order and checkout
-          </button>
-        </div>
-      </div>
+        <h3> Products in cart:</h3>
+        <hr/>
+        <% @order.products.each do |product| %>
+        <li><%= product.name %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
+
+  <div class="col-xs-4">
+    <div class="checkout-content-container-address">
+      <% if current_user.customer.customer_addresses.empty? %>
+      <h4> Please enter delivery address:</h4>
+      <div id="order-address-form">
+        <h4> <strong> <%= current_user.first_name + " " + current_user.last_name %> </strong> </h4>
+        <%= simple_form_for @customer_address, url: customer_customer_addresses_path(@customer), remote: true do |f| %>
+        <%= f.input :address, placeholder: 'E.g Orla Lehmanns allé 8, 1. 8000 Aarhus C' %>
+        <%= f.submit "add address", class: "btn btn-primary", id: "address-submit" %>
+        <% end %>
+      </div>
+      <% else %>
+      <div>
+        <h3 id="checkout-address">Delivery address:</h3>
+        <h4> <strong> <%= current_user.first_name + " " + current_user.last_name %> </strong>  </h4>
+        <h4> <span id="front-customer-address"> <%= current_user.customer.customer_addresses.last.address %> </span> </h4>
+        <button type="button" class="btn update-address-button btn-sm" data-toggle="modal" data-target="#EditAddressModal">
+          Change delivery address
+        </button>
+      </div>
+      <hr/>
+      <% end %>
+      <button type="button" class="btn checkout-button btn-block" data-toggle="modal" data-target="#ConfirmModal" id="confirm-modal-button">
+        Review order and checkout
+      </button>
+    </div>
+  </div>
+</div>
+</div>
 </div>
 
 <!-- Update address modal -->
@@ -47,20 +50,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Review</h4>
+        <h4 class="modal-title">Enter new delivery address</h4>
       </div>
       <div class="modal-body">
         <div class="text-center">
-          <h3>Enter new delivery address</h3>
           <%= simple_form_for @customer_address, url: customer_customer_addresses_path(@customer), remote: true do |f| %>
           <%= f.input :address, placeholder: 'E.g Orla Lehmanns allé 8, 1. 8000 Aarhus C' %>
           <%= f.submit "Update address", class: "btn btn-success btn-block", id: "address-submit" %>
           <% end %>
         </div>
-        <!-- <div class="modal-footer"> -->
-        <!-- <button type="button" class="btn btn-default" data-dismiss="modal"></button> -->
-        <!-- <button type="button" class="btn btn-success">Confirm</button> -->
-        <!-- </div> -->
       </div>
     </div>
   </div>
@@ -75,17 +73,34 @@
       </div>
       <div class="modal-body">
         <div class="text-center">
+          <h4> <strong> <%= current_user.first_name + " " + current_user.last_name %> </strong> </h4>
+          <h4> <span id="confirm-modal-address"> </span> </h4>
           <h4>Products:</h4>
           <% @order.products.each do |product| %>
           <li><%= product.name %></li>
           <% end %>
-          <h4>Address: <span id="confirm-modal-address"> </span> </h4>
         </div>
+        <br>
         <div class="modal-footer">
           <!-- <button type="button" class="btn btn-default" data-dismiss="modal"></button> -->
-          <button type="button" class="btn btn-success btn-block">Confirm</button>
+          <button type="button" class="btn checkout-button btn-block">Place order</button>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<% content_for(:after_js) do %>
+<script>
+  console.log("yolo")
+  <% if current_user.customer.customer_addresses.empty? %>
+  $("#confirm-modal-button").addClass("hidden")
+  <% else %>
+    $("#confirm-modal-button").click(function () {
+      $("#confirm-modal-address").html('<%= current_user.customer.customer_addresses.last.address %>');
+    });
+  <% end %>
+
+
+</script>
+<% end %>

@@ -13,14 +13,14 @@
       <%= f.error_notification %>
 
       <div class="form-inputs">
-      <div class="row" ;">
-      <div class="col-xs-6">
-      <%= f.input :first_name, required: true, :class => "First Name", autofocus: true, placeholder: "First Name", label: false %>
-      </div>
-      <div class="col-xs-6">
-      <%= f.input :last_name, required: true, :class => "Last Name", autofocus: true, placeholder: "Last Name", label: false %>
-      </div>
-      </div>
+        <div class="row" ;">
+          <div class="col-xs-6">
+            <%= f.input :first_name, required: true, :class => "First Name", autofocus: true, placeholder: "First Name", label: false %>
+          </div>
+          <div class="col-xs-6">
+            <%= f.input :last_name, required: true, :class => "Last Name", autofocus: true, placeholder: "Last Name", label: false %>
+          </div>
+        </div>
         <%= f.input :email, required: true, :class => "sign-up-email", autofocus: true, placeholder: "Your email", label: false %>
         <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), autofocus: true, placeholder: "Your password", label: false %>
         <%= f.input :password_confirmation, required: true, autofocus: true, placeholder: "Confirm your password", label: false %>
@@ -36,3 +36,12 @@
     </div>
   </div>
 </div>
+<%= content_for :after_js do %>
+  <script type="text/javascript">
+      $(window).load(function(){
+          $('#openmodel').modal('show');
+      });
+  </script>
+
+<% end %>
+
