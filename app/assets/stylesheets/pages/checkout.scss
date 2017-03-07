@@ -4,7 +4,7 @@
   border: 1px solid #696F73;
   padding: 12px;
   padding-left: 25px;
-  min-height: 260px;
+  min-height: 210px;
   position: relative;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
@@ -20,7 +20,7 @@
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 #confirm-modal-button{
-  margin-top: 65px;
+  margin-top: 10px;
   align-self: flex-end;
 }
 .checkout-button{
@@ -32,4 +32,12 @@
 .checkout-button:hover{
   background: #02b875;
   border-color: #02b875;
+}
+.update-address-button{
+  background-color: #4e5c6a;
+  color: white;
+}
+.update-address-button:hover{
+  background: #39434D;
+  color: black;
 }
