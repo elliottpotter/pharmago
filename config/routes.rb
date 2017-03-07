@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  mount Attachinary::Engine => "/attachinary"
+
   authenticated :user do
     root :to => 'passthrough#minirouter' # Look up the PassthroughController
   end

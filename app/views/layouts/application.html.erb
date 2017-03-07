@@ -15,8 +15,8 @@
   <%= yield %>
 
   <!-- <script type="text/javascript" src="slick/slick.min.js"></script> -->
-
   <%= javascript_include_tag 'application' %>
+  <%= cloudinary_js_config %> <!-- Append this after the main `javascript_include_tag`. -->
   <%= yield(:after_js) %>
 </body>
 </html>

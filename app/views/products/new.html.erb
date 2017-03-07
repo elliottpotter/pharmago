@@ -1,0 +1,5 @@
+<%= simple_form_for @product do |f| %>
+  <%= f.input :name, label: 'Product name', error: 'Must enter a product name' %>
+  <%= f.input :photo_url, placeholder: 'www.example.com' %>
+  <%= f.button :submit %>
+<% end %>
