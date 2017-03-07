@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  mount Attachinary::Engine => "/attachinary"
+
   authenticated :user do
     root :to => 'passthrough#minirouter' # Look up the PassthroughController
   end
@@ -15,7 +17,7 @@ Rails.application.routes.draw do
   get 'verification_codes/new', to: 'verification_codes#new'
 
 
-  devise_for :users, :controllers => { :registrations => "users/registrations" }
+  devise_for :users, controllers: { registrations: "users/registrations" }
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     # resources :order_products, only: [ :index, :show, :new, :create ] do
     #   resources :products, only: :create

@@ -18,8 +18,12 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'aasm'
 gem 'twilio-ruby', '~> 4.11.1'
-
+gem 'cloudinary'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+gem 'coffee-rails'
 gem "pundit"
+
 
 # Our gems
 gem 'faker'
