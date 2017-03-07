@@ -1,6 +1,5 @@
 <div class="wrapper" style="background-color: #ededed">
 
-
 <div class="row">
 <div class="col-xs-3">
     <div class="tabs-container">
@@ -45,26 +44,14 @@
 
 
 <div class="col-xs-9">
-
   <h3 style="padding-top: 40px; margin-top: 0px; margin-left: 15px; color:grey;">Most bought</h3>
   <div class="shopping-page-wrapper" style="padding-left: 30px; margin-left: 15px; padding-right: 30px; margin-right: 15px;">
     <div style="padding: 20px; margin-bottom: 0px !important;">
-
       <div class ="your-class" id="order-display">
-        <% @products.each do |product| %>
-        <div class="card" style="height: 150px; width: 200px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= product.url %>');">
-          <div class="card-category" id='<%= product.id %>'> </div>
-          <div class="card-description">
-            <h2><%= product.name %></h2>
-            <p> product description / price</p>
-          </div>
-          <!-- <img class="card-user avatar" src=""> -->
-          <a class="card-link" href="#" ></a>
-
-        </div>
+        <% @products.first(6).each do |product| %>
+          <%= render "shared/product_card", product: product %>
         <% end %>
       </div>
-
     </div>
   </div>
 
@@ -73,17 +60,8 @@
     <div style="padding: 20px; margin-bottom: 0px !important;">
 
       <div class ="your-class" id="order-display">
-        <% @products.each do |product| %>
-        <div class="card" style="height: 150px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= product.url %>');">
-          <div class="card-category" id='<%= product.id %>'> </div>
-          <div class="card-description">
-            <h2><%= product.name %></h2>
-            <p> product description / price</p>
-          </div>
-          <!-- <img class="card-user avatar" src=""> -->
-          <a class="card-link" href="#" ></a>
-
-        </div>
+        <% @products.last(6).each do |product| %>
+          <%= render "shared/product_card", product: product %>
         <% end %>
       </div>
 
@@ -96,15 +74,7 @@
 
       <div class ="your-class" id="order-display">
         <% @products.each do |product| %>
-        <div class="card" style="height: 150px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= product.url %>');">
-          <div class="card-category" id='<%= product.id %>'> </div>
-          <div class="card-description">
-            <h2><%= product.name %></h2>
-            <p> product description / price</p>
-          </div>
-          <!-- <img class="card-user avatar" src=""> -->
-          <a class="card-link" href="#" ></a>
-        </div>
+          <%= render "shared/product_card", product: product %>
         <% end %>
       </div>
     </div>

@@ -15,8 +15,9 @@ class OrdersController < ApplicationController
   def new
     @order          = current_user.customer.orders.build
     @products       = Product.all
-    3.times         { @order.order_products.build }
+    @order_products = []
     authorize @products
+    # authorize @order_products
   end
 
   def create
