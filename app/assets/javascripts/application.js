@@ -23,7 +23,7 @@ $(function(){
     arrows: true
   });
 
-  $('.slick-arrow').addClass('fa').addClass('fa-arrow-right')
+  // $('.slick-arrow').addClass('fa').addClass('fa-arrow-right')
 
 });
 

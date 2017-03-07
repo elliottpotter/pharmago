@@ -34,7 +34,10 @@ Rails.application.routes.draw do
         resources :products, only: [ :index, :show, :new, :create ]
       end
     end
-    resources :customers, only: [ :show]
+    resources :customers, only: [ :show] do
+      resources :customer_addresses, only: [ :create]
+    end
+
     resources :drivers, only: [ :show ]
 end
 
