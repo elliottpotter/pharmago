@@ -1,7 +1,8 @@
 .fade {
-  background: white;
+  background-image: url('doctor_left.jpg');
   opacity: .15;
-  transition: 3s linear all;
+  transition: 1.5s linear all;
+  background-size: cover;
   // background: rgba(0, 0, 0, 0.5);
 }
 
