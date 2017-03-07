@@ -1,7 +1,11 @@
 
-console.log('<%= current_user.customer.customer_addresses.last.address %>');
+console.log('in the java.js.erb');
+// update final modal address
 $("#confirm-modal-address").html('<%= current_user.customer.customer_addresses.last.address %>');
+// update main page address
 $("#front-customer-address").html('<%= current_user.customer.customer_addresses.last.address %>');
-
+// show checkout button when address is added
+$("#confirm-modal-button").removeClass("hidden")
+// hide update-adress modal
 $('#EditAddressModal').modal('hide');
 
