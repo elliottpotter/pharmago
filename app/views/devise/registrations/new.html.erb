@@ -36,3 +36,12 @@
     </div>
   </div>
 </div>
+<%= content_for :after_js do %>
+  <script type="text/javascript">
+      $(window).load(function(){
+          $('#openmodel').modal('show');
+      });
+  </script>
+
+<% end %>
+
