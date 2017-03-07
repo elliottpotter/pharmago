@@ -37,7 +37,7 @@
 
       <div class ="your-class" id="order-display">
         <% @products.each do |product| %>
-        <div class="card" style="height: 150px; width: 200px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= product.photo_url %>');">
+        <div class="card" style="height: 150px; width: 200px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= product.url %>');">
           <div class="card-category" id='<%= product.id %>'> </div>
           <div class="card-description">
             <h2><%= product.name %></h2>
@@ -57,7 +57,7 @@
 
       <div class ="your-class" id="order-display">
         <% @products.each do |product| %>
-        <div class="card" style="height: 150px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= product.photo_url %>');">
+        <div class="card" style="height: 150px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= product.url %>');">
           <div class="card-category" id='<%= product.id %>'> </div>
           <div class="card-description">
             <h2><%= product.name %></h2>
@@ -77,7 +77,7 @@
 
       <div class ="your-class" id="order-display">
         <% @products.each do |product| %>
-        <div class="card" style="height: 150px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= product.photo_url %>');">
+        <div class="card" style="height: 150px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= product.url %>');">
           <div class="card-category" id='<%= product.id %>'> </div>
           <div class="card-description">
             <h2><%= product.name %></h2>
