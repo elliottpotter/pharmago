@@ -9,24 +9,32 @@
       </div>
       <div class="tab" data-target="#orders"> <!-- lav underDivs se instacart -->
         <div class ="col-xs-1"><i class="fa fa-heart " aria-hidden="true"></i></div>
+
+<div class="row">
+<div class="col-xs-3">
+    <div class="tabs-container">
+      <div class="tab active" data-target="#orders"> <!-- lav underDivs se instacart -->
+        <div class ="col-xs-1"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
+
         <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Suggested Categories</h4></div>
         <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
       </div>
       <div class="tab" data-target="#profile">
+
         <div class ="col-xs-1"><i class="fa fa-medkit" aria-hidden="true"></i></div>
+
         <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>All medicines</h4></div>
         <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
       </div>
       <div class="tab" data-target="#History">
+
         <div class ="col-xs-1"><i class="fa fa-ambulance" aria-hidden="true"></i></div>
+
         <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Your Orders</h4></div>
         <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
       </div>
       <div class="tab" data-target="#Addresses">
-        <div class ="col-xs-1"><i class="fa fa-list" aria-hidden="true"></i></div>
-        <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Categories</h4></div>
-        <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
-      </div>
+
       <div class="tab" data-target="#Addresses">
         <div class ="col-xs-1"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
         <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Basket</h4></div>
@@ -35,70 +43,80 @@
     </div>
 
 
+        <div class ="col-xs-1"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+        <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Categories</h4></div>
+        <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
+      </div>
+    </div>
 
-    <div class="col-xs-9">
+
+</div>
 
 
-      <h3 style="padding-top: 40px; margin-top: 0px; margin-left: 15px; color:grey;">Most bought</h3>
-      <div class="shopping-page-wrapper" style="padding-left: 15px; margin-left: 15px; padding-right: 15px; margin-right: 15px; border-radius: 5px;">
-        <div style="padding: 20px; margin-bottom: 0px !important;">
 
-          <div class ="your-class" id="order-display">
-            <% @products.each do |product| %>
-            <div onmouseenter="showAddDiv('<%= product.id %>')" onmouseleave="hideDiv('<%= product.id %>')" class="card hoverpoducts" style="height: 150px; width: 200px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= product.url %>');">
+<div class="col-xs-9">
 
-              <div class="card-description">
-                <h2><%= product.name %></h2>
-                <p> product description / price</p>
-              </div>
-              <a class="card-link" href="#" ></a>
-              <div class="addproduct addcart" id="add-<%= product.id %>">
-                <%= button_to "Add product", product_order_products_path(product_id: product.id), class: "btn btn-success", remote: true %>
-              </div>
-            </div>
-            <% end %>
+
+  <h3 style="padding-top: 40px; margin-top: 0px; margin-left: 15px; color:grey;">Most bought</h3>
+  <div class="shopping-page-wrapper" style="padding-left: 30px; margin-left: 15px; padding-right: 30px; margin-right: 15px;">
+    <div style="padding: 20px; margin-bottom: 0px !important;">
+
+      <div class ="your-class" id="order-display">
+        <% @products.each do |product| %>
+        <div class="card" style="height: 150px; width: 200px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= product.url %>');">
+          <div class="card-category" id='<%= product.id %>'> </div>
+          <div class="card-description">
+            <h2><%= product.name %></h2>
+            <p> product description / price</p>
           </div>
+          <!-- <img class="card-user avatar" src=""> -->
+          <a class="card-link" href="#" ></a>
+
         </div>
+        <% end %>
       </div>
 
-      <h3 style="margin-left: 15px; color:grey;">Painkillers</h3>
-     <div class="shopping-page-wrapper" style="padding-left: 15px; margin-left: 15px; padding-right: 15px; margin-right: 15px; border-radius: 5px;">
-        <div style="padding: 20px; margin-bottom: 0px !important;">
+    </div>
+  </div>
 
-          <div class ="your-class" id="order-display">
-            <% @products.each do |product| %>
-            <div class="card" style="height: 150px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= product.url %>');">
+   <h3 style="margin-left: 15px; color:grey;">Painkillers</h3>
+  <div class="shopping-page-wrapper" style="padding-left: 30px; margin-left: 15px; padding-right: 30px; margin-right: 15px;">
+    <div style="padding: 20px; margin-bottom: 0px !important;">
 
-              <div class="card-description">
-                <h2><%= product.name %></h2>
-                <p> product description / price</p>
-              </div>
-              <!-- <img class="card-user avatar" src=""> -->
-              <a class="card-link" href="#" ></a>
-            </div>
-            <% end %>
+      <div class ="your-class" id="order-display">
+        <% @products.each do |product| %>
+        <div class="card" style="height: 150px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= product.url %>');">
+          <div class="card-category" id='<%= product.id %>'> </div>
+          <div class="card-description">
+            <h2><%= product.name %></h2>
+            <p> product description / price</p>
           </div>
+          <!-- <img class="card-user avatar" src=""> -->
+          <a class="card-link" href="#" ></a>
+
         </div>
+        <% end %>
       </div>
 
-      <h3 style="margin-left: 15px; color:grey;">Allergies</h3>
-      <div class="shopping-page-wrapper" style="padding-left: 15px; margin-left: 15px; padding-right: 15px; margin-right: 15px; border-radius: 5px;">
-        <div style="padding: 20px; margin-bottom: 0px !important;">
+    </div>
+  </div>
 
-          <div class ="your-class" id="order-display">
-            <% @products.each do |product| %>
-            <div class="card" style="height: 150px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= product.url %>');">
+  <h3 style="margin-left: 15px; color:grey;">Allergies</h3>
+  <div class="shopping-page-wrapper" style="padding-left: 30px; margin-left: 15px; padding-right: 30px; margin-right: 15px;">
+    <div style="padding: 20px; margin-bottom: 0px !important;">
 
-              <div class="card-description">
-                <h2><%= product.name %></h2>
-                <p> product description / price</p>
-              </div>
-              <!-- <img class="card-user avatar" src=""> -->
-              <a class="card-link" href="#" ></a>
-            </div>
-            <% end %>
+      <div class ="your-class" id="order-display">
+        <% @products.each do |product| %>
+        <div class="card" style="height: 150px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= product.url %>');">
+          <div class="card-category" id='<%= product.id %>'> </div>
+          <div class="card-description">
+            <h2><%= product.name %></h2>
+            <p> product description / price</p>
           </div>
+          <!-- <img class="card-user avatar" src=""> -->
+          <a class="card-link" href="#" ></a>
         </div>
+        <% end %>
       </div>
     </div>
   </div>
@@ -106,19 +124,15 @@
   <br>
 </div>
 
+
 <% content_for(:after_js) do %>
 <script>
-
   $('.addproduct').hide();
-
   function showAddDiv(id) {
     $('#add-' + id).show();
   }
-
   function hideDiv(id) {
     $('#add-' + id).hide();
   }
-
-
 </script>
 <% end %>
