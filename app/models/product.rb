@@ -20,7 +20,7 @@ class Product < ApplicationRecord
   private
 
   def product_params
-    params.require(:product).permit(:name, :photo)
+    params.require(:product).permit(:name, :photo, :photo_url)
   end
 
 end

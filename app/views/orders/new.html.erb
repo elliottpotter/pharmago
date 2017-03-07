@@ -37,8 +37,8 @@
 
       <div class ="your-class" id="order-display">
         <% @products.each do |product| %>
-        <div class="card" style="height: 150px; width: 200px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/category/nature/150x150');">
-          <div class="card-category"> id: <%= product.id %> </div>
+        <div class="card" style="height: 150px; width: 200px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= product.photo_url %>');">
+          <div class="card-category" id='<%= product.id %>'> </div>
           <div class="card-description">
             <h2><%= product.name %></h2>
             <p> product description / price</p>
@@ -57,8 +57,8 @@
 
       <div class ="your-class" id="order-display">
         <% @products.each do |product| %>
-        <div class="card" style="height: 150px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/category/nature/150x150');">
-          <div class="card-category"> id: <%= product.id %> </div>
+        <div class="card" style="height: 150px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= product.photo_url %>');">
+          <div class="card-category" id='<%= product.id %>'> </div>
           <div class="card-description">
             <h2><%= product.name %></h2>
             <p> product description / price</p>
@@ -77,8 +77,8 @@
 
       <div class ="your-class" id="order-display">
         <% @products.each do |product| %>
-        <div class="card" style="height: 150px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://www.unsplash.com/150/150');">
-          <div class="card-category"> id: <%= product.id %> </div>
+        <div class="card" style="height: 150px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= product.photo_url %>');">
+          <div class="card-category" id='<%= product.id %>'> </div>
           <div class="card-description">
             <h2><%= product.name %></h2>
             <p> product description / price</p>
