@@ -1,4 +1,3 @@
-
 <div class="wrapper" style="background-color: #ededed">
   <div class="row">
 
@@ -56,7 +55,6 @@
 
 
 <div class="col-xs-9">
-
 
   <h3 style="padding-top: 40px; margin-top: 0px; margin-left: 15px; color:grey;">Most bought</h3>
   <div class="shopping-page-wrapper" style="padding-left: 30px; margin-left: 15px; padding-right: 30px; margin-right: 15px;">
@@ -128,18 +126,13 @@
 
 <% content_for(:after_js) do %>
 <script>
-
   $('.addproduct').hide();
-
   function showAddDiv(id) {
     $('#add-' + id).show();
   }
-
   function hideDiv(id) {
     $('#add-' + id).hide();
   }
-
-
 </script>
 <% end %>
 
