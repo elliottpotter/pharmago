@@ -2,46 +2,39 @@
 
 <div class="row">
 <div class="col-xs-3">
+
     <div class="tabs-container">
-      <div class="tab" data-target="#orders"> <!-- lav underDivs se instacart -->
-        <div class ="col-xs-1"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
+        <div class="tab" data-target="#orders"> <!-- lav underDivs se instacart -->
+          <div class ="col-xs-1"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
+          <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Suggested Categories</h4></div>
+          <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
+        </div>
+        <div class="tab" data-target="#profile">
 
-        <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Suggested Categories</h4></div>
-        <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
-      </div>
-      <div class="tab" data-target="#profile">
+          <div class ="col-xs-1"><i class="fa fa-medkit" aria-hidden="true"></i></div>
 
-        <div class ="col-xs-1"><i class="fa fa-medkit" aria-hidden="true"></i></div>
+          <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>All medicines</h4></div>
+          <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
+        </div>
+        <div class="tab" data-target="#History">
 
-        <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>All medicines</h4></div>
-        <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
-      </div>
-      <div class="tab" data-target="#History">
+          <div class ="col-xs-1"><i class="fa fa-ambulance" aria-hidden="true"></i></div>
 
-        <div class ="col-xs-1"><i class="fa fa-ambulance" aria-hidden="true"></i></div>
-
-        <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Your Orders</h4></div>
-        <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
-      </div>
-      <div class="tab" data-target="#Addresses">
-
-
-        <div class ="col-xs-1"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
-        <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Basket</h4></div>
-        <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
-      </div>
-    </div>
-
-<div class="tab" data-target="#Addresses">
-        <div class ="col-xs-1"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
-        <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Categories</h4></div>
-        <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
+          <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Your Orders</h4></div>
+          <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
+        </div>
+        <div class="tab" data-target="#Addresses">
+          <div class ="col-xs-1"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
+          <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Basket</h4></div>
+          <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
+        </div>
+        <div class="tab" data-target="#Addresses">
+          <div class ="col-xs-1"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+          <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Categories</h4></div>
+          <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
+        </div>
       </div>
     </div>
-
-
-
-
 
 <div class="col-xs-9">
   <h3 style="padding-top: 40px; margin-top: 0px; margin-left: 15px; color:grey;">Most bought</h3>
@@ -55,7 +48,7 @@
     </div>
   </div>
 
-   <h3 style="margin-left: 15px; color:grey;">Painkillers</h3>
+  <h3 style="margin-left: 15px; color:grey;">Painkillers</h3>
   <div class="shopping-page-wrapper" style="padding-left: 30px; margin-left: 15px; padding-right: 30px; margin-right: 15px;">
     <div style="padding: 20px; margin-bottom: 0px !important;">
 
@@ -77,12 +70,10 @@
           <%= render "shared/product_card", product: product %>
         <% end %>
       </div>
+      <br>
+      <br>
     </div>
   </div>
-  <br>
-  <br>
-</div>
-</div>
 </div>
 
 

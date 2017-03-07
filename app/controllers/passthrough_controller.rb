@@ -7,7 +7,7 @@ class PassthroughController < ApplicationController
     elsif current_user.customer.orders.present?
       redirect_to customer_path(current_user.customer)
     elsif current_user.customer.present?
-      redirect_to new_order_path
+      redirect_to customer_path(current_user.customer)
     else
       raise
     end
