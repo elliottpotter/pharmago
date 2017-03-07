@@ -20,6 +20,9 @@ class OrderProductsController < ApplicationController
     # @order_product         = OrderProduct.create(order_product_params)
     # @order_product.product = product
     # @order_product.save!
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
