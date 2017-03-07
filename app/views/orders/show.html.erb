@@ -18,6 +18,7 @@
       <% if current_user.customer.customer_addresses.empty? %>
       <h4> Please enter delivery address:</h4>
       <div id="order-address-form">
+        <h4> <strong> <%= current_user.first_name + " " + current_user.last_name %> </strong> </h4>
         <%= simple_form_for @customer_address, url: customer_customer_addresses_path(@customer), remote: true do |f| %>
         <%= f.input :address, placeholder: 'E.g Orla Lehmanns allé 8, 1. 8000 Aarhus C' %>
         <%= f.submit "add address", class: "btn btn-primary", id: "address-submit" %>
@@ -28,7 +29,7 @@
         <h3 id="checkout-address">Delivery address:</h3>
         <h4> <strong> <%= current_user.first_name + " " + current_user.last_name %> </strong>  </h4>
         <h4> <span id="front-customer-address"> <%= current_user.customer.customer_addresses.last.address %> </span> </h4>
-        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#EditAddressModal">
+        <button type="button" class="btn update-address-button btn-sm" data-toggle="modal" data-target="#EditAddressModal">
           Change delivery address
         </button>
       </div>
@@ -94,10 +95,12 @@
   console.log("yolo")
   <% if current_user.customer.customer_addresses.empty? %>
   $("#confirm-modal-button").addClass("hidden")
+  <% else %>
+    $("#confirm-modal-button").click(function () {
+      $("#confirm-modal-address").html('<%= current_user.customer.customer_addresses.last.address %>');
+    });
   <% end %>
 
-  $("#confirm-modal-button").click(function () {
-    $("#confirm-modal-address").html('<%= current_user.customer.customer_addresses.last.address %>');
-  });
+
 </script>
 <% end %>
