@@ -3,13 +3,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_account_update_params, only: [:update]
   layout 'signup_page', :only => [:new]
 
-  # GET /resource/sign_up
-  # def new
-  #   super
-  # end
-
-
-  # POST /resource
   def create
     super
     create_customer if params[:commit].match(/customer/)
