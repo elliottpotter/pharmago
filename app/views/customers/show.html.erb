@@ -1,28 +1,30 @@
 <div class="dashboard-wrapper">
   <div class="row">
-    <div class="tabs-container col-xs-3 col-xs-offset-1">
-      <div class="tab active" data-target="#orders"> <!-- lav underDivs se instacart -->
-        <div class ="col-xs-1"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
-        <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Orders</h4></div>
-        <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
-      </div>
-      <div class="tab" data-target="#profile">
-        <div class ="col-xs-1"><i class="fa fa-user" aria-hidden="true"></i></div>
-        <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Profile</h4></div>
-        <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
-      </div>
-      <div class="tab" data-target="#History">
-        <div class ="col-xs-1"><i class="fa fa-list" aria-hidden="true"></i></div>
-        <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Order History</h4></div>
-        <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
-      </div>
-      <div class="tab" data-target="#Addresses">
-        <div class ="col-xs-1"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
-        <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Delivery Addresses</h4></div>
-        <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
+    <div class="col-xs-3">
+      <div class="tabs-container">
+        <div class="tab active" data-target="#orders"> <!-- lav underDivs se instacart -->
+          <div class ="col-xs-1"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
+          <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Orders</h4></div>
+          <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
+        </div>
+        <div class="tab" data-target="#profile">
+          <div class ="col-xs-1"><i class="fa fa-user" aria-hidden="true"></i></div>
+          <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Profile</h4></div>
+          <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
+        </div>
+        <div class="tab" data-target="#History">
+          <div class ="col-xs-1"><i class="fa fa-list" aria-hidden="true"></i></div>
+          <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Order History</h4></div>
+          <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
+        </div>
+        <div class="tab" data-target="#Addresses">
+          <div class ="col-xs-1"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+          <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Delivery Addresses</h4></div>
+          <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
+        </div>
       </div>
     </div>
-    <div class="context-container col-xs-7 ">
+    <div class="context-container col-xs-7" style="margin-top: 80px;">
       <div class="tab-content" id="orders">
         <%= render 'customer_orders_show.html.erb', orders: @orders, customer: @customer %>
       </div>
