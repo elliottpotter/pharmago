@@ -1,3 +1,9 @@
+<% if orders.count === 0 %>
+<div class="fadeinwords">
+Welcome, <%= current_user.first_name%>! It looks like you haven't created an order yet. To create your first order click <%= link_to "HERE", new_order_path %>
+</div>
+
+<% else %>
 <h3> Your orders </h3>
 <% orders.each do |order| %>
   <div>
@@ -8,3 +14,5 @@
   </div>
 <% end %>
 <h3> <%= link_to "New Order", new_order_path %></h3>
+<% end %>
+
