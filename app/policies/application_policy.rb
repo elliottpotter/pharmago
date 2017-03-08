@@ -46,6 +46,10 @@ class ApplicationPolicy
     scope.where(:id => record.id).exists?
   end
 
+  def add_to_cart?
+    true
+  end
+
   def scope
     Pundit.policy_scope!(user, record.class)
   end

@@ -16,8 +16,8 @@ $(function(){
 
   $('.your-class').slick({
     infinite: true,
-    slidesToShow: 6,
-    slidesToScroll: 6,
+    slidesToShow: 4,
+    slidesToScroll: 4,
     centerMode: false,
     centerPadding: '0px',
     arrows: true
@@ -27,7 +27,7 @@ $(function(){
 
 
 var $el = $(".fadeinwords:first"), text = $el.text(),
-    words = text.split(" ");
+    words = text.split("|");
 
 
 var html = "";
@@ -41,7 +41,7 @@ for (var i = 0; i < words.length; i++) {
 
 };
 $el.html(html).children().hide().each(function(i){
-  $(this).delay(i*300).fadeIn(700);
+  $(this).delay(i*700).fadeIn(1400);
 });
 
 });

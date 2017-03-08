@@ -10,9 +10,13 @@ Rails.application.routes.draw do
 
   get 'drivers/new',            to: 'driver_registrations#new'
   get 'drivers/switch',         to: 'drivers#switch'
-  get 'orders/claim',           to: 'orders#claim'
   post 'drivers',               to: 'driver_registrations#create'
+
   get 'verification_codes/new', to: 'verification_codes#new'
+
+  get 'orders/claim',           to: 'orders#claim'
+  post 'order/add_to_cart',     to: 'orders#add_to_cart'
+
 
 
   devise_for :users, controllers: { registrations: "users/registrations" }

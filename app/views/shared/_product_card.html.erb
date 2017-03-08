@@ -5,19 +5,13 @@
 
       <div class="card-category" id='<%= product.id %>'> </div>
       <div data-product-id="<%= product.id %>" data-quantity=0 class="quantity-control" id='quantity-<%= product.id %>'>
-<<<<<<< HEAD
-        <span onclick="subtractOne('<%= product.id %>')" class="square subtract"><i class="fa fa-minus"></i></span>
-        <span onclick="addOne('<%= product.id %>')" class="square add" style=""> <i class="fa fa-plus"></i> ADD</span>
-=======
-        <span onclick="subtractOne('<%= product.id %>')" class="square subtract" style="font-size: 10px;"> - </span>
-        <span onclick="addOne('<%= product.id %>')" class="square add" style="font-size: 10px;"> +ADD </span>
->>>>>>> 39017f78986efdf119288d2392d63fff6b2bfff8
+        <span onclick="subtractOne('<%= product.id %>')" class="square subtract" style="font-size: 10px;"><i class="fa fa-minus"></i></span>
+        <span onclick="addOne('<%= product.id %>')" class="square add" style="font-size: 10px;"><i class="fa fa-plus"></i> ADD</span>
       </div>
       <!-- <img class="card-user avatar" src=""> -->
     </div>
     <div class="product-card">
       <h5><%= product.name %></h5>
-      <h6> product description / price</h6>
     </div>
   </div>
 </div>
@@ -28,21 +22,46 @@
 
     var orderProducts = {}
 
+    function escapeHtml(text) {
+      var map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+      };
+
+      return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+    }
+
+    function createOrderProducts(id) {
+      var jsonOrderProducts = $(JSON.stringify(orderProducts));
+
+      $('<form enctype="application/json" action="/order/add_to_cart" method="POST">' +
+        '<input type="hidden" name="json" value="' + escapeHtml(data) + '">' +
+        '</form>').submit();
+    }
+
     function addOne(id) {
       var newQuantity = $('#quantity-' + id).data('quantity') + 1
       $('#quantity-' + id).data('quantity', newQuantity);
-      console.log(  $('#quantity-' + id).data('quantity')  );
-
+      orderProducts[id] = newQuantity;
+      console.log( orderProducts );
     };
 
     function subtractOne(id) {
       var quantity = $('#quantity-' + id).data('quantity')
-      if ( quantity > 0 ) {
+      if ( quantity > 1 ) {
         var newQuantity = quantity - 1
         $('#quantity-' + id).data('quantity', newQuantity)
+        orderProducts[id] = newQuantity;
+        console.log( orderProducts );
       }
       else {
         $('#quantity-' + id).data('quantity', 0)
+        orderProducts[id] = newQuantity;
+        delete orderProducts[id];
+        console.log( orderProducts );
       }
       var subtractQuantity = $('#quantity-' + id).data('quantity') - 1
       $('#quantity-' + id).data('quantity', newQuantity)

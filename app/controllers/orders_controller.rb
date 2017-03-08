@@ -1,23 +1,33 @@
 class OrdersController < ApplicationController
   def index
-    @orders         = Order.all
+    @orders             = Order.all
     authorize @orders
   end
 
+  def add_to_cart
+    raise
+    order               = Order.find(params[:id])
+    order_products      = JSON.parse(params[:order_products])
+
+    order_products.each do |id, quantity|
+      order.order_products.create(product: Product.find(id), quantity: quantity)
+    end
+    authorize order
+    redirect_to order_path(order)
+  end
+
   def show
-    @order          = Order.find(params[:id])
-    @customer       = Customer.find(current_user.customer)
-    @customer_address = CustomerAddress.new
+    @order              = Order.find(params[:id])
+    @customer           = Customer.find(current_user.customer)
+    @customer_address   = CustomerAddress.new
     @customer_addresses = CustomerAddress.where(customer_id: current_user)
     authorize @order
   end
 
   def new
-    @order          = current_user.customer.orders.build
-    @products       = Product.all
-    @order_products = []
+    @order              = current_user.customer.orders.create
+    @products           = Product.all
     authorize @products
-    # authorize @order_products
   end
 
   def create
@@ -27,9 +37,9 @@ class OrdersController < ApplicationController
   end
 
   def claim
-    @order          = Order.find(params[:id])
+    @order              = Order.find(params[:id])
     @order.claim!
-    @order.driver   = current_user.driver
+    @order.driver       = current_user.driver
     @order.save!
     authorize @order
   end

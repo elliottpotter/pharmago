@@ -1,4 +1,9 @@
 <div class="wrapper" style="background-color: #ededed">
+<br>
+
+<div onclick="createOrderProducts('<%= @order.id %>')" id="create-order-'<%= @order.id %>'" style="text-align: center;">
+  <%= link_to "Place order", order_path(@order), class: "btn btn-primary" %>
+</div>
 
 <div class="row">
   <div class="col-xs-3">

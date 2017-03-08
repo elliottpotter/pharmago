@@ -24,6 +24,10 @@ class OrderPolicy < ApplicationPolicy
       true
     end
 
+    def add_to_cart?
+      true
+    end
+
     def order_params?
       true
     end
