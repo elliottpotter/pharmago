@@ -44,6 +44,7 @@
   1.times do
     product                    = Product.new
     product.name               = Faker::Commerce.product_name
+    product.price              = [5, 6, 10, 15, 20].sample
     product.save!
   end
 
@@ -54,7 +55,7 @@
     order.customer           = Customer.last
     order.driver             = Driver.last
     order.delivery_date      = Date.today
-    order.subtotal           = rand(10..70)
+    order.amount             = 15 # make it better bro
     order.aasm_state         = [ :claimed, :shopping, :processed, :delivered, :unclaimed ].sample
     order.save!
   end
