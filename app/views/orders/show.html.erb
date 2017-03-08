@@ -118,7 +118,9 @@
   $("#confirm-modal-button").addClass("hidden")
   <% else %>
     $("#confirm-modal-button").click(function () {
-      $("#confirm-modal-address").html('<%= current_user.customer.customer_addresses.last.address %>');
+      console.log("main jquery")
+      var newAddress = $("#front-customer-address").text()
+      $("#confirm-modal-address").html(newAddress);
     });
   <% end %>
 
