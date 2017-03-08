@@ -5,7 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     super
-    create_customer if params[:commit].match(/customer/)
+    params[:commit].match(/customer/) ? create_customer : create_driver
   end
 
   def create_customer
