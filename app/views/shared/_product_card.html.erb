@@ -3,8 +3,8 @@
     <div class="card product-info" style="width: 250px; height: 250px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= product.url %>');">
       <div class="card-category" id='<%= product.id %>'> </div>
       <div data-product-id="<%= product.id %>" data-quantity=0 class="quantity-control" id='quantity-<%= product.id %>'>
-        <span onclick="subtractOne('<%= product.id %>')" class="square subtract"> - </span>
-        <span onclick="addOne('<%= product.id %>')" class="square add" style=""> +ADD </span>
+        <span onclick="subtractOne('<%= product.id %>')" class="square subtract"><i class="fa fa-minus"></i></span>
+        <span onclick="addOne('<%= product.id %>')" class="square add" style=""> <i class="fa fa-plus"></i> ADD</span>
       </div>
       <!-- <img class="card-user avatar" src=""> -->
     </div>
