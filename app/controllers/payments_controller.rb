@@ -13,8 +13,10 @@ class PaymentsController < ApplicationController
     description:  "Payment for order #{@order.id}",
     currency:     @order.amount.currency
   )
-
   @order.update(payment: charge.to_json)
+  # make aasm_state go from unpaid to unclaimed
+  @order.unclaim
+  @order.save!
   redirect_to customer_path(current_user)
 
   authorize @order
