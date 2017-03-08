@@ -1,8 +1,7 @@
 <div class="wrapper" style="background-color: #ededed">
 <br>
 
-<div onclick="createOrderProducts('<%= @order.id %>')" id="create-order-'<%= @order.id %>'" style="text-align: center;">
-  <%= link_to "Place order", order_path(@order), class: "btn btn-primary" %>
+<div class="btn btn-primary" onclick="createOrderProducts('<%= @order.id %>')" id="create-order-'<%= @order.id %>'" style="text-align: center;">
 </div>
 
 <div class="row">
