@@ -1,0 +1,5 @@
+<h3><strong>Your addresses</strong></h3>
+<% customer.customer_addresses.each do|address| %>
+  <h3> <%= address.address  %></h3>
+  <!-- add deletion and update -->
+<% end %>
