@@ -56,7 +56,7 @@
     order.driver             = Driver.last
     order.delivery_date      = Date.today
     order.amount             = 15 # make it better bro
-    order.aasm_state         = [ :claimed, :shopping, :processed, :delivered, :unclaimed ].sample
+    order.aasm_state         = :unpaid
     order.save!
   end
 
