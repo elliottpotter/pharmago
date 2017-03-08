@@ -3,9 +3,8 @@
   <div class="login test">
     <%= image_tag 'pharmago.png', id: 'logo'  %>
     <br>
+    <h4>Have your own schedule and earn <strong> money </strong>by helping people</h4>
     <br>
-    <h4>Work on your own schedule and earn <strong> sweet </strong>dollars</h4>
-    <h5 style="padding-bottom: 10px;">Sign up to our service</h5>
     <div style="padding-left: 50px; padding-right: 50px;">
       <%= simple_form_for(User.new, as: :user, url: registration_path(:user)) do |f| %>
       <%= f.error_notification %>
@@ -31,8 +30,8 @@
 
       </div>
 
-      <div class="form-actions" style="padding-bottom: 10px;">
-        <%= f.button :submit, "Sign up as a driver" %>
+       <div class="form-actions" style="padding-bottom: 10px;">
+        <%= f.button :submit, "Sign up as a Driver", :class => 'btn btn-primary sign-up' %>
       </div>
       <% end %>
     </div>

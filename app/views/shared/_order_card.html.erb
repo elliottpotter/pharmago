@@ -13,7 +13,8 @@
 
 <div id="card-<%= order.id %>" class="order-card">
   <div class="order-info">
-    <%= order.customer.user.email %>
+    <%= order.customer.user.email %> <br>
+    <%= order.customer.customer_addresses.last.address %>
   </div>
 
   <div class="order-interaction">
@@ -43,12 +44,12 @@
 
     function showConfirmation(id) {
       $('#' + 'confirm-' + id).fadeIn();
-      $('#' + 'card-' + id).addClass('fade');
+      $('#' + 'card-' + id).addClass('fadewhite');
     }
 
     function hideThis(id) {
       $("#" + id).parent('div').hide();
-      $('#' + 'card-' + id).removeClass('fade');
+      $('#' + 'card-' + id).removeClass('fadewhite');
     }
 
     function showThis(id) {
