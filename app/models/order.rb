@@ -4,20 +4,26 @@ class Order < ApplicationRecord
   has_many :order_products, inverse_of: :order
   has_many :products, through: :order_products
 
+  monetize :amount_cents
 
   accepts_nested_attributes_for :order_products
 
   include AASM
 
   aasm do
-    state :unclaimed, initial: true
+    state :unpaid, initial: true
+    state :unclaimed
     state :claimed
     state :shopping
     state :processed
     state :delivered
 
+    event :unpaid do
+      transitions from: [ :claimed, :shopping, :processed, :delivered, :unclaimed ], to: :unpaid
+    end
+
     event :unclaim do
-      transitions from: [ :claimed, :shopping, :processed, :delivered, :unclaimed ], to: :unclaimed
+      transitions from: :unpaid, to: :unclaimed
     end
 
     event :claim do

@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       resources :order_products, only: [ :index, :show, :new, :create ]
     end
     resources :orders, only: [ :index, :show, :new, :create ] do
+      resources :payments, only: [ :create]
       resources :order_products, only: [ :index, :show, :new, :create ] do
         resources :products, only: [ :index, :show, :new, :create ]
       end

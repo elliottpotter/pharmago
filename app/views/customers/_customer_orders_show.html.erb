@@ -5,14 +5,18 @@ Welcome, <%= current_user.first_name.capitalize%>! |It looks like you haven't cr
 
 <% else %>
 <h3> Your orders </h3>
-<% orders.each do |order| %>
-  <div>
-    <h5> Order-id: <%= order.id  %> </h5>
-    <h5> Order -  status: <%= order.status %> </h5>
-    <h5> delivery date: <%= order.delivery_date %> </h5>
-    <h5> <%= link_to "See Order", order_path(order) %></h5>
-  </div>
-<% end %>
-<h3> <%= link_to "New Order", new_order_path %></h3>
-<% end %>
+<hr/>
+
+  <% counter = 0 %>
+  <% orders.each do |order| %>
+    <% if order.unclaimed? || order.claimed? || order.shopping? %>
+    <% counter += 1 %>
+
+    <div>
+      <h4> Status of your order: <%= order.aasm_state %> </h4>
+      <h4> Order-id: <%= order.id  %> </h4>
+      <!-- <h5> delivery date: <%= order.delivery_date %> </h5> -->
+    </div>
+    <% end %>
+  <% end %>
 

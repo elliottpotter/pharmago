@@ -3,29 +3,35 @@
   <div class="login test">
     <%= image_tag 'pharmago.png', id: 'logo'  %>
     <br>
+    <h4>Have your own schedule and earn <strong> money </strong>by helping people</h4>
     <br>
-    <h4>Work on your own schedule and earn <strong> sweet </strong>dollars</h4>
-    <h5 style="padding-bottom: 10px;">Sign up to our service</h5>
     <div style="padding-left: 50px; padding-right: 50px;">
       <%= simple_form_for(User.new, as: :user, url: registration_path(:user)) do |f| %>
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <%= f.input :email, required: true, autofocus: true %>
-        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-        <%= f.input :password_confirmation, required: true %>
+        <div class="row" ;">
+          <div class="col-xs-6">
+            <%= f.input :first_name, required: true, :class => "First Name", autofocus: true, placeholder: "First Name", label: false %>
+          </div>
+          <div class="col-xs-6">
+            <%= f.input :last_name, required: true, :class => "Last Name", autofocus: true, placeholder: "Last Name", label: false %>
+          </div>
+        </div>
+        <%= f.input :email, required: true, placeholder: "Your Email", label: false, autofocus: true %>
         <div class="form-group">
-          <%= f.label :country_code %>
-          <%= f.text_field :country_code, class: "form-control", id: "authy-countries" %>
+          <%= f.text_field :country_code, class: "form-control", placeholder: "Your Country Code", label: false, id: "authy-countries" %>
         </div>
         <div class="form-group">
-          <%= f.label :phone_number %>
-          <%= f.text_field :phone_number, class: "form-control", id: "authy-cellphone" %>
+          <%= f.text_field :phone_number, class: "form-control", placeholder: "Your Phone Number", label: false, id: "authy-cellphone" %>
         </div>
+        <%= f.input :password, required: true, placeholder: "Password", label: false, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+        <%= f.input :password_confirmation, placeholder: "Password Confirmation", label: false, required: true %>
+
       </div>
 
-      <div class="form-actions" style="padding-bottom: 10px;">
-        <%= f.button :submit, "Sign up as a driver" %>
+       <div class="form-actions" style="padding-bottom: 10px;">
+        <%= f.button :submit, "Sign up as a Driver", :class => 'btn btn-primary sign-up' %>
       </div>
       <% end %>
     </div>

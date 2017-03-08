@@ -18,11 +18,6 @@
           <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>All medicines</h4></div>
           <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
         </div>
-        <div class="tab" data-target="#History">
-          <div class ="col-xs-1"><i class="fa fa-ambulance" aria-hidden="true"></i></div>
-          <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Your Orders</h4></div>
-          <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
-        </div>
         <div class="tab" data-target="#yourbasket">
           <div class ="col-xs-1"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
           <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Basket</h4></div>
@@ -35,7 +30,7 @@
         </div>
       </div>
     </div>
-    <div class="context-container col-xs-8" style="margin-top: 80px;">
+    <div class="context-container col-xs-8">
       <div class="tab-content active" id="suggestedcats">
         <%= render 'suggested_categories_show.html.erb', orders: @orders, product: @product %>
       </div>

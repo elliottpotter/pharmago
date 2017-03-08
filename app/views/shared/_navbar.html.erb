@@ -3,7 +3,7 @@
 <div class="<%= navbar_classes %>">
   <!-- Logo -->
 
-  <a href="/" class="navbar-wagon-brand">
+  <a href="/orders/new" class="navbar-wagon-brand">
     <%= image_tag "favicon.ico" %>
   </a>
 
@@ -58,7 +58,7 @@
           <% end %>
           <% else %>
           <%= link_to driver_path(current_user) do %>
-          <h4 style="color: grey; margin-bottom: 0px !important;">Hi!</h4>
+          <h4 style="color: grey; margin-bottom: 0px !important;">Hi, <%= current_user.first_name.capitalize %></h4>
           <% end %>
           <% end  %>
          </li>

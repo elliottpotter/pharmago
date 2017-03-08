@@ -1,7 +1,7 @@
 
-  <h3 style="padding-top: 40px; margin-top: 0px; margin-left: 15px; color:black;">Most popular</h3>
-  <div class="shopping-page-wrapper" style="padding-left: 30px; margin-left: 15px; padding-right: 30px; margin-right: 15px;">
-    <div style="padding: 20px; margin-bottom: 0px !important;">
+  <h3 style="padding-top: 40px; margin-top: 0px; margin-left: 15px; color:grey;">Most bought</h3>
+  <div class="shopping-page-wrapper">
+    <div style="padding: 20px;">
       <div class ="your-class" id="order-display">
         <% @products.first(12).each do |product| %>
           <%= render "shared/product_card", product: product %>
@@ -10,9 +10,9 @@
     </div>
   </div>
 
-  <h3 style="margin-left: 15px; color:black;">Pain relief</h3>
-  <div class="shopping-page-wrapper" style="padding-left: 30px; margin-left: 15px; padding-right: 30px; margin-right: 15px;">
-    <div style="padding: 20px; margin-bottom: 0px !important;">
+  <h3 style="margin-left: 15px; color:grey;">Pain relief</h3>
+  <div class="shopping-page-wrapper">
+    <div style="padding: 20px;">
 
       <div class ="your-class" id="order-display">
         <% @products.last(12).each do |product| %>
@@ -23,9 +23,9 @@
     </div>
   </div>
 
-  <h3 style="margin-left: 15px; color:black;">Allergy relief</h3>
-  <div class="shopping-page-wrapper" style="padding-left: 30px; margin-left: 15px; padding-right: 30px; margin-right: 15px;">
-    <div style="padding: 20px; margin-bottom: 0px !important;">
+  <h3 style="margin-left: 15px; color:grey;">Allergy relief</h3>
+  <div class="shopping-page-wrapper">
+    <div style="padding: 20px;">
 
       <div class ="your-class" id="order-display">
         <% @products.each do |product| %>
