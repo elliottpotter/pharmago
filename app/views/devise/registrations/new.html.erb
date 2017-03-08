@@ -26,6 +26,7 @@
         <%= f.input :password_confirmation, required: true, autofocus: true, placeholder: "Confirm your password", label: false %>
       </div>
 
+
       <div class="form-actions" style="padding-bottom: 10px;">
         <%= f.button :submit, "Sign up as a customer", :class => 'btn btn-primary sign-up' %>
       </div>
@@ -37,11 +38,11 @@
   </div>
 </div>
 <%= content_for :after_js do %>
-  <script type="text/javascript">
-      $(window).load(function(){
-          $('#openmodel').modal('show');
-      });
-  </script>
+<script type="text/javascript">
+  $(window).load(function(){
+    $('#openmodel').modal('show');
+  });
+</script>
 
 <% end %>
 

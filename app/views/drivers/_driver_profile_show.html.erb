@@ -1,4 +1,57 @@
-<h3> Drivers profile </h3>
+
+<div class="context-container">
+  <div style="color: grey;">
+    <h3>Account Information</h3>
+    <div class="row">
+      <div class="col-xs-4"><h4> Email </h4></div>
+      <div class="col-xs-4"><h4> <%= driver.user.email %></h4></div>
+      <div class="col-xs-4"><h4><%= link_to "Update", edit_user_registration_path %></h4></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4"><h4> Password </h4></div>
+      <div class="col-xs-4"><h4> ●●●●●●</h4></div>
+      <div class="col-xs-4"><h4><%= link_to "Change", edit_user_registration_path %></h4></div>
+    </div>
+  </div>
+</div>
+<div style="padding-top: 2px; background-color: grey;"></div>
+<div class="context-container" style="color: grey;">
+  <h3>Personal Infomation</h3>
+  <div class="row">
+    <div class="col-xs-4"><h4> First Name </h4></div>
+    <div class="col-xs-4"><h4> <%= driver.user.first_name %></h4></div>
+    <div class="col-xs-4"><h4><%= link_to "Change", edit_user_registration_path %></h4></div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4"><h4> Last Name </h4></div>
+    <div class="col-xs-4"><h4> <%= driver.user.last_name %> </h4></div>
+    <div class="col-xs-4"><h4><%= link_to "Change", edit_user_registration_path %></h4></div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4"><h4> Phone Number </h4></div>
+    <div class="col-xs-4"><h4> <%= current_user.driver.phone_number %> </h4></div>
+    <div class="col-xs-4"><% if current_user.driver.phone_number.nil? %>
+      <h4>Add</h4>
+      <% else %>
+      <h4>Update</h4>
+      <% end %>
+
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4"><h4> Driver ID </h4></div>
+    <div class="col-xs-4"><h4> <%= driver.id %></h4></div>
+    <div class="col-xs-4"><h4> </h4></div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- <h3> Drivers profile </h3>
 
 <div class="switch">
     <input type="checkbox" value="None" id="switch" name="check" checked />
@@ -7,7 +60,7 @@
 <h5>How active are you?</h5>
 
 
-<% content_for(:after_js) do %>
+
   <script>
     $(document).ready(function() {
 
@@ -27,4 +80,5 @@
 
     });
   </script>
-<% end %>
+
+-->
