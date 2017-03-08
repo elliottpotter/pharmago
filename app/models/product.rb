@@ -2,6 +2,7 @@ class Product < ApplicationRecord
   has_many :order_products
   has_many :orders, through: :order_products
   has_attachment :photo
+  monetize :price_cents
 
   def to_s
     name

@@ -2,12 +2,15 @@
   <div class="row">
     <h1 class="text-center">Order overview</h1>
     <hr/>
-    <div class="col-xs-offset-2 col-xs-4">
-      <div class="checkout-content-container">
+    <div class="col-xs-offset-1 col-xs-6">
+      <div class="checkout-product-container">
         <h3> Products in cart:</h3>
         <hr/>
         <% @order.products.each do |product| %>
-        <li><%= product.name %></li>
+        <li>
+          <%= product.name %> <p> Price: <%= humanized_money_with_symbol(product.price) %></p>
+          <!-- show small pic -->
+          </li>
         <% end %>
       </ul>
     </div>
@@ -69,21 +72,39 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Review</h4>
+        <h4 class="modal-title" id="myModalLabel">Review your order</h4>
       </div>
       <div class="modal-body">
         <div class="text-center">
           <h4> <strong> <%= current_user.first_name + " " + current_user.last_name %> </strong> </h4>
+          <h4> <%= current_user.email %> </h4>
           <h4> <span id="confirm-modal-address"> </span> </h4>
           <h4>Products:</h4>
           <% @order.products.each do |product| %>
           <li><%= product.name %></li>
           <% end %>
         </div>
+        <h3> Finalize order and pay below </h3>
+        <hr/>
+        <%= form_tag order_payments_path(@order) do %>
+        <article>
+          <label class="amount">
+            <span>Total amount: <%= humanized_money_with_symbol(@order.amount) %></span>
+            </label>
+          </article>
+
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-name="My Order"
+            data-email="<%= current_user.email %>"
+            data-description="Order <%= @order.id %>"
+            data-amount="<%= @order.amount_cents %>"
+            data-currency="<%= @order.amount.currency %>"></script>
+        <% end %>
         <br>
-        <div class="modal-footer">
+        <!-- <div class="modal-footer"> -->
           <!-- <button type="button" class="btn btn-default" data-dismiss="modal"></button> -->
-          <button type="button" class="btn checkout-button btn-block">Place order</button>
+          <!-- <button type="button" class="btn checkout-button btn-block">Place order</button> -->
         </div>
       </div>
     </div>
