@@ -1,0 +1,39 @@
+
+  <h3 style="padding-top: 40px; margin-top: 0px; margin-left: 15px; color:grey;">Most bought</h3>
+  <div class="shopping-page-wrapper" style="padding-left: 30px; margin-left: 15px; padding-right: 30px; margin-right: 15px;">
+    <div style="padding: 20px; margin-bottom: 0px !important;">
+      <div class ="your-class" id="order-display">
+        <% @products.first(12).each do |product| %>
+          <%= render "shared/product_card", product: product %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-left: 15px; color:grey;">Painkillers</h3>
+  <div class="shopping-page-wrapper" style="padding-left: 30px; margin-left: 15px; padding-right: 30px; margin-right: 15px;">
+    <div style="padding: 20px; margin-bottom: 0px !important;">
+
+      <div class ="your-class" id="order-display">
+        <% @products.last(12).each do |product| %>
+          <%= render "shared/product_card", product: product %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+  <h3 style="margin-left: 15px; color:grey;">Allergies</h3>
+  <div class="shopping-page-wrapper" style="padding-left: 30px; margin-left: 15px; padding-right: 30px; margin-right: 15px;">
+    <div style="padding: 20px; margin-bottom: 0px !important;">
+
+      <div class ="your-class" id="order-display">
+        <% @products.each do |product| %>
+          <%= render "shared/product_card", product: product %>
+        <% end %>
+      </div>
+      <br>
+      <br>
+    </div>
+  </div>
+
