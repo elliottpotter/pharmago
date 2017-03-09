@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 20170309131823) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "user_code"
+
     t.index ["user_id"], name: "index_verification_codes_on_user_id", using: :btree
   end
 
