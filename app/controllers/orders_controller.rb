@@ -42,7 +42,7 @@ class OrdersController < ApplicationController
   def calculate_amount(order)
     sum = 0
     order.order_products.each do |order_product|
-      subsum = order_product.quantity * order_product.product.price
+      subsum = order_product.quantity * order_product.product.amount_cents
       sum += subsum
     end
     return sum
