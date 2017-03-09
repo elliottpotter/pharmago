@@ -6,7 +6,7 @@
       <div class="checkout-product-container">
         <h3> Products in cart:</h3>
         <hr/>
-        <%# raise %>
+
         <% @order.order_products.each do |order_product| %>
         <ul>
           <p> <%= order_product.quantity %> | <%= order_product.product.name %> </p>
@@ -15,6 +15,7 @@
 
           <!-- show small pic? -->
           </ul>
+
         <% end %>
         <hr/>
         <h4> Sub total: <%= @order.amount %>€ </h4>
