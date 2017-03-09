@@ -5,8 +5,8 @@
 
       <div class="card-category" id='<%= product.id %>'> </div>
       <div data-product-id="<%= product.id %>" data-quantity=0 class="quantity-control" id='quantity-<%= product.id %>'>
-        <span onclick="subtractOne('<%= product.id %>')" class="square subtract" style="font-size: 10px;"><i class="fa fa-minus"></i></span>
-        <span onclick="addOne('<%= product.id %>')" class="square add" style="font-size: 10px;"><i class="fa fa-plus"></i> ADD</span>
+        <span onclick="subtractOne('<%= product.id %>')" class="square subtract add-button" style="font-size: 10px;"><i class="fa fa-minus"></i></span>
+        <span onclick="addOne('<%= product.id %>')" class="square add add-button" style="font-size: 10px;"><i class="fa fa-plus"></i> ADD</span>
       </div>
       <!-- <img class="card-user avatar" src=""> -->
     </div>
