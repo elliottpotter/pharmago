@@ -10,8 +10,8 @@
         <% @order.order_products.each do |order_product| %>
         <ul>
           <p> <%= order_product.quantity %> | <%= order_product.product.name %> </p>
-          <% total_price = order_product.quantity * order_product.product.price  %>
-          <p> Price: <%= total_price %>€, per item: <%= order_product.product.price %>€ </p>
+          <% total_price = order_product.quantity * order_product.product.amount_cents %>
+          <p> Price: <%= total_price %>€, per item: <%= order_product.product.amount_cents %>€ </p>
 
           <!-- show small pic? -->
           </ul>
