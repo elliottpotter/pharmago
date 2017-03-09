@@ -1,8 +1,32 @@
-<div class="wrapper" style="background-color: #ededed">
 
-<div class="row">
-  <div class="col-xs-3">
-    <div class="tabs-container">
+<div class="card1" style="background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.2)), url('<%= asset_path "banner.jpg"%>');">
+  <img src="<%= asset_path "Pharmago15.png"%>" class="pharmagologo">
+
+
+ <!--  <div class="box searchform">
+    <div class="container-1">
+      <span class="icon"><i class="fa fa-search"></i></span>
+      <input type="search" id="search" placeholder="Search..." />
+    </div>
+  </div> -->
+
+  <div class="box searchform">
+    <div class="container-3">
+      <span class="icon"><i class="fa fa-search"></i></span>
+      <input type="search" id="search" placeholder="Search for medicine..." />
+    </div>
+  </div>
+
+
+<!--   <div class="card-description1">
+    <h2>Some stuff</h2>
+    <p>Very cool stuff, useful and smart</p>
+  </div> -->
+</div>
+<div class="wrapper" style="background-color: #ededed">
+  <div class="row">
+    <div class="col-xs-3">
+      <div class="tabs-container">
 
         <div class="tab" data-target="#suggestedcats"> <!-- lav underDivs se instacart -->
           <div class ="col-xs-1"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
@@ -26,8 +50,8 @@
         </div>
         <div>
           <button type="button" class="btn checkout-button btn-block" onclick="createOrderProducts('<%= @order.id %>')" id="create-order-'<%= @order.id %>'">
-        Checkout
-      </button>
+            Checkout
+          </button>
         </div>
       </div>
     </div>

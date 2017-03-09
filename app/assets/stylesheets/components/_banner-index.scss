@@ -1,0 +1,184 @@
+.card1 {
+  height: 350px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  color: white;
+  position: relative;
+}
+.card-user1 {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.card-category1 {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+.card-description1 {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.card-description1 h2 {
+  font-size: 24px;
+}
+.card-description1 p {
+  font-size: 13px;
+}
+.card-link1 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index:2;
+  background: black;
+  opacity: 0;
+}
+.card-link:hover1{
+  opacity: 0.1;
+}
+
+.pharmagologo {
+  width: 300px;
+  padding-top: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+}
+
+.searchform{
+  background: #e6e6e6;
+  margin: 0px auto;
+  width: 400px;
+  height: 50px;
+}
+
+.container-1{
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+
+.container-1 input#search{
+  width: 300px;
+  height: 50px;
+  background: #2b303b;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  color: #63717f;
+  padding-left: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-transition: background .55s ease;
+  -moz-transition: background .55s ease;
+  -ms-transition: background .55s ease;
+  -o-transition: background .55s ease;
+  transition: background .55s ease;
+}
+
+.container-1 input#search::-webkit-input-placeholder {
+ color: #65737e;
+}
+
+.container-1 input#search:-moz-placeholder { /* Firefox 18- */
+ color: #65737e;
+}
+
+.container-1 input#search::-moz-placeholder {  /* Firefox 19+ */
+ color: #65737e;
+}
+
+.container-1 input#search:-ms-input-placeholder {
+ color: #65737e;
+}
+
+.container-1 .icon{
+  position: absolute;
+  top: 50%;
+  margin-left: 17px;
+  margin-top: 17px;
+  z-index: 1;
+  color: #4f5b66;
+}
+
+.container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active{
+  outline:none;
+  background: #ffffff;
+}
+
+.container-3{
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+
+.container-3 input#search{
+  width: 300px;
+  height: 50px;
+  background: #e6e6e6;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  color: #262626;
+  padding-left: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.container-3 input#search::-webkit-input-placeholder {
+   color: #65737e;
+}
+
+.container-3 input#search:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;
+}
+
+.container-3 input#search::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;
+}
+
+.container-3 input#search:-ms-input-placeholder {
+   color: #65737e;
+}
+
+.container-3 .icon{
+  position: absolute;
+  top: 50%;
+  margin-left: 17px;
+  margin-top: 17px;
+  z-index: 1;
+  color: #4f5b66;
+
+   -webkit-transition: all .55s ease;
+  -moz-transition: all .55s ease;
+  -ms-transition: all .55s ease;
+  -o-transition: all .55s ease;
+  transition: all .55s ease;
+}
+
+
+.container-3 input#search:focus, .container-3 input#search:active{
+    outline:none;
+}
+
+.container-3:hover .icon{
+  margin-top: 16px;
+  color: #93a2ad;
+
+  -webkit-transform:scale(1.5); /* Safari and Chrome */
+  -moz-transform:scale(1.5); /* Firefox */
+  -ms-transform:scale(1.5); /* IE 9 */
+  -o-transform:scale(1.5); /* Opera */
+   transform:scale(1.5);
+  }
