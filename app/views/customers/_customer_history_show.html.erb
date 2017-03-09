@@ -1,5 +1,8 @@
-<h3>Order history</h3>
+<h1>Order history</h1>
 <br/>
+<% if @orders.where(aasm_state: 'delivered').empty? %>
+<h3>You have no delivered orders yet. Get started and create your order <%= link_to "here", new_order_path %></h3>
+<% else %>
 Delivered orders
 <% @orders.where(aasm_state: 'delivered').each do |order| %>
 
@@ -13,3 +16,4 @@ Delivered orders
 
 <% end %>
 
+<% end %>

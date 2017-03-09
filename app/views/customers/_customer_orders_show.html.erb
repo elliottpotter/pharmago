@@ -17,9 +17,8 @@ Your Orders
   <% counter += 1 %>
 
   <div>
-    <h4> Status of your order: <%= order.aasm_state %> </h4>
     <h4> Order-id: <%= order.id  %> </h4>
-    <!-- <h5> delivery date: <%= order.delivery_date %> </h5> -->
+    <h4> Status of your order: <%= order.aasm_state %> </h4>
   </div>
   <% end %>
 <% end %>

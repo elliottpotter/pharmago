@@ -1,3 +1,5 @@
+<h2>If you wish to complete your order press Place Order</h2>
 <div onclick="createOrderProducts('<%= @order.id %>')" id="create-order-'<%= @order.id %>'" style="text-align: center;">
   <%= link_to "Place order", order_path(@order), class: "btn btn-primary" %>
 </div>
+
