@@ -1,5 +1,6 @@
+  <div class="verification-code">
 <% if @driver.unverified? %>
-  <%= render "shared/verification_code" %>
+    <%= render "shared/verification_code" %>
 <% else %>
   <% if @available_orders.length > 0 %>
     <h1 class="center"> All Currently Available orders </h1>
@@ -14,4 +15,5 @@
     <h1 class="center"> No orders currently available </h1>
   <% end %>
 <% end %>
+  </div>
 

@@ -16,5 +16,9 @@ class DriverPolicy < ApplicationPolicy
       true
     end
 
+    def send_code?
+      true
+    end
+
   end
 end

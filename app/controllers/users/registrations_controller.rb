@@ -13,34 +13,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_driver
-    Driver.create(user: @user)
+    @driver = Driver.create(user: @user, verification_code: rand(10000..99999).to_s)
+    send_code
   end
 
-  # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  private
 
-  # PUT /resource
-  # def update
-  #   super
-  # end
-
-  # DELETE /resource
-  # def destroy
-  #   super
-  # end
-
-  # GET /resource/cancel
-  # Forces the session data which is usually expired after sign
-  # in to be expired now. This is useful if the user wants to
-  # cancel oauth signing in/up in the middle of the process,
-  # removing all OAuth session data.
-  # def cancel
-  #   super
-  # end
-
-  # protected
+  def send_code
+    code               = @driver.verification_code
+    @client = Twilio::REST::Client.new ENV["twilio_account_sid"], ENV["twilio_auth_token"]
+    @client.messages.create(
+      from: '+12566335409',
+      to:   '+4530203878',
+      body: code
+    )
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
