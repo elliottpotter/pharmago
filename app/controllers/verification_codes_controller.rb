@@ -1,7 +1,7 @@
 class VerificationCodesController < ApplicationController
 
   def new
-    code               = rand(1000..9999).to_s
+    code               = rand(10000..99999).to_s
     @user              = current_user
     @user.user_code    = code
     @user.save!
@@ -16,12 +16,10 @@ class VerificationCodesController < ApplicationController
     authorize @verification_code
   end
 
-  def create
-    if current_user.user_code == @code
-      raise
-      @driver = Driver.create(user: current_user)
-      authorize @driver
-    end
+  def verify
+    @driver            = current_user.driver
+    current_user.user_code == code ? @driver.verify! : @driver
+    authorize @driver
   end
 
 end

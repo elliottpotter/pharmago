@@ -12,5 +12,9 @@ class DriverPolicy < ApplicationPolicy
       true
     end
 
+    def verify?
+      true
+    end
+
   end
 end

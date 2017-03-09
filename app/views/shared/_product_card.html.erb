@@ -1,21 +1,17 @@
 <div style=":focus {outline:0;}" onmouseenter="showQuantityControl('<%= product.id %>')" onmouseleave="hideQuantityControl('<%= product.id %>')" class="row">
   <div class="col-xs-12">
-
     <div class="card product-info" style="width: 150px; height: 100px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= product.url %>');">
-
       <div class="card-category" id='<%= product.id %>'> </div>
       <div data-product-id="<%= product.id %>" data-quantity=0 class="quantity-control" id='quantity-<%= product.id %>'>
         <span onclick="subtractOne('<%= product.id %>')" class="square subtract" style="font-size: 10px;"><i class="fa fa-minus"></i></span>
         <span onclick="addOne('<%= product.id %>')" class="square add" style="font-size: 10px;"><i class="fa fa-plus"></i> ADD</span>
       </div>
-      <!-- <img class="card-user avatar" src=""> -->
     </div>
     <div class="product-card">
       <h5><%= product.name %></h5>
     </div>
   </div>
 </div>
-
 
 <% content_for(:after_js) do %>
   <script>

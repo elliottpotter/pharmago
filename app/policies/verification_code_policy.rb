@@ -12,5 +12,9 @@ class VerificationCodePolicy < ApplicationPolicy
       true
     end
 
+    def verify?
+      true
+    end
+
   end
 end

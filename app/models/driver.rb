@@ -17,4 +17,14 @@ class Driver < ApplicationRecord
     end
 
   end
+
+  aasm :column => :verification_status do
+    state :unverified, :initial => true
+    state :verified
+
+    event :verify do
+      transitions :from => :unverified, :to => :verified
+    end
+
+  end
 end

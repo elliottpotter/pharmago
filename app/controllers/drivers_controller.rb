@@ -15,4 +15,8 @@ class DriversController < ApplicationController
     authorize @driver
   end
 
+  # def verify
+  #   code == current_user.user_code ? @driver.verify! : @driver
+  # end
+
 end
