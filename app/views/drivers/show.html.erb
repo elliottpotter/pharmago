@@ -1,40 +1,42 @@
 <div class="dashboard-wrapper">
   <div class="row">
-    <div class="tabs-container col-xs-3 col-xs-offset-1">
-      <div class="tab active" data-target="#active-orders"> <!-- lav underDivs se instacart -->
-        <div class ="col-xs-1"><i class="fa fa-ambulance" aria-hidden="true"></i></div>
-        <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Active Orders</h4></div>
-        <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
-      </div>
-      <div class="tab" data-target="#available-orders"> <!-- lav underDivs se instacart -->
-        <div class ="col-xs-1"><i class="fa fa-plus-square" aria-hidden="true"></i></div>
-        <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Available Orders</h4></div>
-        <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
-      </div>
-      <div class="tab" data-target="#profile">
-        <div class ="col-xs-1"><i class="fa fa-user" aria-hidden="true"></i></div>
-        <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Profile</h4></div>
-        <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
-      </div>
-      <div class="tab" data-target="#History">
-        <div class ="col-xs-1"><i class="fa fa-list" aria-hidden="true"></i></div>
-        <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Order History</h4></div>
-        <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
+    <div class="col-xs-3">
+      <div class="tabs-container">
+        <div class="tab active" data-target="#active-orders"> <!-- lav underDivs se instacart -->
+          <div class ="col-xs-1"><i class="fa fa-ambulance" aria-hidden="true"></i></div>
+          <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Active Orders</h4></div>
+          <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
+        </div>
+        <div class="tab" data-target="#available-orders"> <!-- lav underDivs se instacart -->
+          <div class ="col-xs-1"><i class="fa fa-plus-square" aria-hidden="true"></i></div>
+          <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Available Orders</h4></div>
+          <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
+        </div>
+        <div class="tab" data-target="#profile">
+          <div class ="col-xs-1"><i class="fa fa-user" aria-hidden="true"></i></div>
+          <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Profile</h4></div>
+          <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
+        </div>
+        <div class="tab" data-target="#History">
+          <div class ="col-xs-1"><i class="fa fa-list" aria-hidden="true"></i></div>
+          <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Order History</h4></div>
+          <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
+        </div>
       </div>
     </div>
     <div class="context-container col-xs-7 ">
-        <div class="tab-content" id="active-orders">
-          <%= render 'driver_active_orders_show.html.erb', orders: @orders, driver: @driver %>
-        </div>
-        <div class="tab-content hidden" id="available-orders">
-          <%= render 'driver_orders_show.html.erb', orders: @orders, driver: @driver %>
-        </div>
-        <div class="tab-content hidden" id="profile">
-          <%= render 'driver_profile_show.html.erb', driver: @driver %>
-        </div>
-        <div class="tab-content hidden" id="History">
-          <%= render 'driver_history_show.html.erb', driver: @driver %>
-        </div>
+      <div class="tab-content" id="active-orders">
+        <%= render 'driver_active_orders_show.html.erb', orders: @orders, driver: @driver %>
+      </div>
+      <div class="tab-content hidden" id="available-orders">
+        <%= render 'driver_orders_show.html.erb', orders: @orders, driver: @driver %>
+      </div>
+      <div class="tab-content hidden" id="profile">
+        <%= render 'driver_profile_show.html.erb', driver: @driver %>
+      </div>
+      <div class="tab-content hidden" id="History">
+        <%= render 'driver_history_show.html.erb', driver: @driver %>
+      </div>
     </div>
   </div>
 </div>
