@@ -1,25 +1,25 @@
 # Let's seed!
 
-20.times do
+30.times do
 
-    # Create customers
+  # Create customers
+  1.times do
+    user                     = User.new
+    user.email               = Faker::Internet.email
+    user.password            = Faker::Internet.password.to_s
+    user.first_name          = Faker::Name.first_name
+    user.last_name           = Faker::Name.last_name
+    user.country_code        = "+45"
+
+    user.save!
+    user.admin               = false
     1.times do
-      user                     = User.new
-      user.email               = Faker::Internet.email
-      user.password            = Faker::Internet.password.to_s
-      user.first_name          = Faker::Name.first_name
-      user.last_name           = Faker::Name.last_name
-      user.country_code        = "+45"
-
-      user.save!
-      user.admin               = false
-      1.times do
-        customer               = Customer.new
-        customer.user          = user
-        customer.phone_number  = Faker::PhoneNumber.phone_number
-        customer.save!
-      end
+      customer               = Customer.new
+      customer.user          = user
+      customer.phone_number  = Faker::PhoneNumber.phone_number
+      customer.save!
     end
+  end
 
   # Create Drivers
   1.times do
@@ -36,6 +36,7 @@
       driver.user           = user
       driver.address        = Faker::Address.street_address
       driver.phone_number   = Faker::PhoneNumber.phone_number
+      driver.activate
       driver.save!
     end
   end
@@ -55,7 +56,7 @@
     order.customer           = Customer.last
     order.driver             = Driver.last
     order.delivery_date      = Date.today
-    order.amount             = 15 # make it better bro
+    order.amount             = [15, 20, 30, 50, 100].sample
     order.aasm_state         = :unpaid
     order.save!
   end
