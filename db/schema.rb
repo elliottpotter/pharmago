@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170309101742) do
+ActiveRecord::Schema.define(version: 20170309131823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,10 +50,11 @@ ActiveRecord::Schema.define(version: 20170309101742) do
     t.integer  "user_id"
     t.string   "phone_number"
     t.string   "address"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.string   "status"
-    t.string   "verification_status"
+    t.string   "verification_status", default: "unverified"
+    t.string   "verification_code"
     t.index ["user_id"], name: "index_drivers_on_user_id", using: :btree
   end
 
@@ -68,15 +69,15 @@ ActiveRecord::Schema.define(version: 20170309101742) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string   "aasm_state",    default: "unpaid"
+    t.string   "aasm_state",                            default: "unpaid"
     t.date     "delivery_date"
     t.datetime "delivered_at"
-    t.decimal  "subtotal"
+    t.decimal  "subtotal",      precision: 8, scale: 2
     t.integer  "customer_id"
     t.integer  "driver_id"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.integer  "amount_cents",  default: 0,        null: false
+    t.datetime "created_at",                                               null: false
+    t.datetime "updated_at",                                               null: false
+    t.integer  "amount_cents",                          default: 0,        null: false
     t.json     "payment"
     t.index ["customer_id"], name: "index_orders_on_customer_id", using: :btree
     t.index ["driver_id"], name: "index_orders_on_driver_id", using: :btree
@@ -86,6 +87,7 @@ ActiveRecord::Schema.define(version: 20170309101742) do
     t.string   "name"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.string   "photo_url"
     t.string   "url"
     t.integer  "price_cents", default: 0, null: false
   end
@@ -120,6 +122,8 @@ ActiveRecord::Schema.define(version: 20170309101742) do
     t.string   "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "user_code"
+
     t.index ["user_id"], name: "index_verification_codes_on_user_id", using: :btree
   end
 

@@ -36,7 +36,7 @@
       driver.user           = user
       driver.address        = Faker::Address.street_address
       driver.phone_number   = Faker::PhoneNumber.phone_number
-      driver.activate
+      driver.verification_code = rand(10000..99999).to_s
       driver.save!
     end
   end
@@ -46,6 +46,7 @@
     product                    = Product.new
     product.name               = Faker::Commerce.product_name
     product.price              = [5, 6, 10, 15, 20].sample
+    product.url                = Faker::Internet.url
     product.save!
   end
 
