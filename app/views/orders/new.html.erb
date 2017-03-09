@@ -32,16 +32,16 @@
     </div>
     <div class="context-container col-xs-8">
       <div class="tab-content active" id="suggestedcats">
-        <%= render 'suggested_categories_show.html.erb', orders: @orders, product: @product %>
+        <%= render 'suggested_categories_show', orders: @orders, product: @product %>
       </div>
       <div class="tab-content hidden" id="allmedicines">
-        <%= render 'all_medicines.html.erb', order: @order, product: @product  %>
+        <%= render 'all_medicines', order: @order, product: @product  %>
       </div>
       <div class="tab-content hidden" id="categories">
-        <%= render 'suggested_categories_show.html.erb', order: @order, product: @product  %>
+        <%= render 'suggested_categories_show', order: @order, product: @product  %>
       </div>
       <div class="tab-content hidden" id="yourbasket">
-        <%= render 'basket.html.erb', order: @order, product: @product  %>
+        <%= render 'your_basket', order: @order, product: @product, order_product: @order_product  %>
       </div>
     </div>
 
