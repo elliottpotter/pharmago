@@ -69,15 +69,15 @@ ActiveRecord::Schema.define(version: 20170309131823) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string   "aasm_state",                            default: "unpaid"
+    t.string   "aasm_state",    default: "unpaid"
     t.date     "delivery_date"
     t.datetime "delivered_at"
-    t.decimal  "subtotal",      precision: 8, scale: 2
+    t.decimal  "subtotal"
     t.integer  "customer_id"
     t.integer  "driver_id"
-    t.datetime "created_at",                                               null: false
-    t.datetime "updated_at",                                               null: false
-    t.integer  "amount_cents",                          default: 0,        null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.integer  "amount_cents",  default: 0,        null: false
     t.json     "payment"
     t.index ["customer_id"], name: "index_orders_on_customer_id", using: :btree
     t.index ["driver_id"], name: "index_orders_on_driver_id", using: :btree
@@ -87,7 +87,6 @@ ActiveRecord::Schema.define(version: 20170309131823) do
     t.string   "name"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
-    t.string   "photo_url"
     t.string   "url"
     t.integer  "price_cents", default: 0, null: false
   end
@@ -122,7 +121,6 @@ ActiveRecord::Schema.define(version: 20170309131823) do
     t.string   "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "user_code"
     t.index ["user_id"], name: "index_verification_codes_on_user_id", using: :btree
   end
 

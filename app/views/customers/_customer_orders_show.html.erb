@@ -4,7 +4,7 @@ Welcome, <%= current_user.first_name.capitalize%>! |It looks like you haven't cr
 </div>
 
 <% else %>
-<h2 style="text-align:left;">
+<h2 style="text-align:left; color: grey;;">
 Your Orders
 <span style="float:right;"><%= link_to "New Order", new_order_path %></span>
 </h2>
@@ -17,8 +17,8 @@ Your Orders
   <% counter += 1 %>
 
   <div>
-    <h4> Order-id: <%= order.id  %> </h4>
-    <h4> Status of your order: <%= order.aasm_state %> </h4>
+    <h4 style="color: grey;"> Order-id: <%= order.id  %> </h4>
+    <h4 style="color: grey;"> Status of your order: <%= order.aasm_state %> </h4>
   </div>
   <% end %>
 <% end %>

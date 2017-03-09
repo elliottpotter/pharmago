@@ -1,7 +1,7 @@
-<div class="verification-code">
+
   <%= simple_form_for :driver, url: drivers_verify_path, :method => :post do |f| %>
-    <%= f.input :verification_code, input_html: { value: nil, placeholder: "Your 5 digit code" } %>
+    <%= f.input :verification_code, label: false, input_html: { value: nil, placeholder: "Your 5 digit verification code" } %>
     <%= f.button :submit %>
   <% end %>
-</div>
+
 

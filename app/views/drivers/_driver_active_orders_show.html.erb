@@ -1,1 +1,16 @@
-<h3>Active Orders:</h3>
+<% if (@orders.where(aasm_state: 'pending')).empty? %>
+<h2>Welcome, <%= current_user.first_name.capitalize %>! It looks like you haven't got any Active Orders. Head to Available Orders to earn money right away.</h2>
+<% else %>
+<h3 style="color: grey;">Active orders</h3>
+<% @orders.where(aasm_state: 'pending').each do |order| %>
+
+<div class="">
+  <h4> Order-id: <%= order.id  %> </h4>
+  <h4> Order -  status: <%= order.aasm_state %> </h4>
+  <h4> delivery date: <%= order.delivery_date %> </h4>
+  <h4> <%= link_to "See Order", order_path(order) %></h4>
+</div>
+
+<% end %>
+
+<% end %>

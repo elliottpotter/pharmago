@@ -1,11 +1,11 @@
  <h3 style="margin-left: 15px; color:grey;">All Products</h3>
- <div class="shopping-page-wrapper" style="padding-left: 30px; margin-left: 15px; padding-right: 30px; margin-right: 15px;">
+ <div class="shopping-page-wrapper">
   <div style="padding: 20px; margin-bottom: 0px !important;">
     <div class="row">
       <% @products.each do |product| %>
 
       <div style=":focus {outline:0;}" onmouseenter="showQuantityControl('<%= product.id %>')" onmouseleave="hideQuantityControl('<%= product.id %>')">
-        <div class="col-xs-2">
+        <div class="col-xs-3">
           <div class="card product-info" style="width: 150px; height: 100px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= product.url %>');">
             <div class="card-category" id='<%= product.id %>'> </div>
             <div data-product-id="<%= product.id %>" data-quantity=0 class="quantity-control" id='quantity-<%= product.id %>'>

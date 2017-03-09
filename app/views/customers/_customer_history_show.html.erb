@@ -1,12 +1,12 @@
-<h1>Order history</h1>
+<h1 style="color: grey;>Order history</h1>
 <br/>
 <% if @orders.where(aasm_state: 'delivered').empty? %>
-<h3>You have no delivered orders yet. Get started and create your order <%= link_to "here", new_order_path %></h3>
+<h3 style="color: grey;>You have no delivered orders yet. Get started and create your order <%= link_to "here", new_order_path %></h3>
 <% else %>
-Delivered orders
+<h1 style="color: grey;">Delivered orders</h1>
 <% @orders.where(aasm_state: 'delivered').each do |order| %>
 
-<div class="">
+<div  style="color: grey;">
   <h4> Order-id: <%= order.id  %> </h4>
   <h4> Order -  status: <%= order.aasm_state %> </h4>
   <h4> delivery date: <%= order.delivery_date %> </h4>
