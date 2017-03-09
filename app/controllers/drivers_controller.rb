@@ -15,8 +15,12 @@ class DriversController < ApplicationController
     authorize @driver
   end
 
-  # def verify
-  #   code == current_user.user_code ? @driver.verify! : @driver
-  # end
+  def verify
+    code                = params[:verification_code]
+    @driver             = current_user.driver
+    current_user.user_code == code ? @driver.verify! : @driver
+    redirect_to driver_path(@driver)
+    authorize @driver
+  end
 
 end
