@@ -1,13 +1,14 @@
 class OrdersController < ApplicationController
+  skip_before_filter :verify_authenticity_token
+
   def index
     @orders             = Order.all
     authorize @orders
   end
 
   def add_to_cart
-    raise
     order               = Order.find(params[:id])
-    order_products      = JSON.parse(params[:order_products])
+    order_products      = JSON.parse(params[:json])
 
     order_products.each do |id, quantity|
       order.order_products.create(product: Product.find(id), quantity: quantity)

@@ -9,17 +9,17 @@ Your Orders
 <span style="float:right;"><%= link_to "New Order", new_order_path %></span>
 </h2>
 <hr/>
+<% end %>
 
-  <% counter = 0 %>
-  <% orders.each do |order| %>
-    <% if order.unclaimed? || order.claimed? || order.shopping? %>
-    <% counter += 1 %>
+<% counter = 0 %>
+<% orders.each do |order| %>
+  <% if order.unclaimed? || order.claimed? || order.shopping? %>
+  <% counter += 1 %>
 
-    <div>
-      <h4> Status of your order: <%= order.aasm_state %> </h4>
-      <h4> Order-id: <%= order.id  %> </h4>
-      <!-- <h5> delivery date: <%= order.delivery_date %> </h5> -->
-    </div>
-    <% end %>
+  <div>
+    <h4> Status of your order: <%= order.aasm_state %> </h4>
+    <h4> Order-id: <%= order.id  %> </h4>
+    <!-- <h5> delivery date: <%= order.delivery_date %> </h5> -->
+  </div>
   <% end %>
-  <% end %>
+<% end %>
