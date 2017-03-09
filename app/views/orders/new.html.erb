@@ -1,8 +1,13 @@
 <div class="wrapper" style="background-color: #ededed">
-  <br>
-  <div class="row">
-    <div class="col-xs-3">
-      <div class="tabs-container">
+<br>
+
+<div class="btn btn-primary" onclick="createOrderProducts('<%= @order.id %>')" id="create-order-'<%= @order.id %>'" style="text-align: center;">
+</div>
+
+<div class="row">
+  <div class="col-xs-3">
+    <div class="tabs-container">
+
         <div class="tab" data-target="#suggestedcats"> <!-- lav underDivs se instacart -->
           <div class ="col-xs-1"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
           <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Suggested Categories</h4></div>

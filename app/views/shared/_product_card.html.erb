@@ -5,8 +5,8 @@
 
       <div class="card-category" id='<%= product.id %>'> </div>
       <div data-product-id="<%= product.id %>" data-quantity=0 class="quantity-control" id='quantity-<%= product.id %>'>
-        <span onclick="subtractOne('<%= product.id %>')" class="square subtract" style="font-size: 10px;"><i class="fa fa-minus"></i></span>
-        <span onclick="addOne('<%= product.id %>')" class="square add" style="font-size: 10px;"><i class="fa fa-plus"></i> ADD</span>
+        <span onclick="subtractOne('<%= product.id %>')" class="square subtract add-button" style="font-size: 10px;"><i class="fa fa-minus"></i></span>
+        <span onclick="addOne('<%= product.id %>')" class="square add add-button" style="font-size: 10px;"><i class="fa fa-plus"></i> ADD</span>
       </div>
       <!-- <img class="card-user avatar" src=""> -->
     </div>
@@ -35,12 +35,19 @@
     }
 
     function createOrderProducts(id) {
-      var jsonOrderProducts = $(JSON.stringify(orderProducts));
+      var jsonOrderProducts = JSON.stringify(orderProducts);
 
-      $('<form enctype="application/json" action="/order/add_to_cart" method="POST">' +
-        '<input type="hidden" name="json" value="' + escapeHtml(data) + '">' +
-        '</form>').submit();
+      var form = $('<form enctype="application/json" action="/order/add_to_cart/" method="POST">' +
+        '<input type="hidden" name="json" value="' + escapeHtml(jsonOrderProducts) + '">' +
+        '<input type="hidden" name="id" value="' + id + '">' +
+        '</form>');
+
+      $(document.body).append(form);
+      form.submit();
+
+      console.log(form.submit());
     }
+
 
     function addOne(id) {
       var newQuantity = $('#quantity-' + id).data('quantity') + 1

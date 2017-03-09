@@ -1,13 +1,14 @@
 class OrdersController < ApplicationController
+  skip_before_filter :verify_authenticity_token
+
   def index
     @orders             = Order.all
     authorize @orders
   end
 
   def add_to_cart
-    raise
     order               = Order.find(params[:id])
-    order_products      = JSON.parse(params[:order_products])
+    order_products      = JSON.parse(params[:json])
 
     order_products.each do |id, quantity|
       order.order_products.create(product: Product.find(id), quantity: quantity)
@@ -21,6 +22,8 @@ class OrdersController < ApplicationController
     @customer           = Customer.find(current_user.customer)
     @customer_address   = CustomerAddress.new
     @customer_addresses = CustomerAddress.where(customer_id: current_user)
+    @order.amount       = calculate_amount(@order)
+    @order.save!
     authorize @order
   end
 
@@ -34,6 +37,15 @@ class OrdersController < ApplicationController
     @order = current_user.customer.orders.create(order_params)
     redirect_to order_path(@order)
     authorize @order
+  end
+
+  def calculate_amount(order)
+    sum = 0
+    order.order_products.each do |order_product|
+      subsum = order_product.quantity * order_product.product.price
+      sum += subsum
+    end
+    return sum
   end
 
   def claim
