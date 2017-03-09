@@ -1,39 +1,38 @@
-
-  <h3 style="padding-top: 40px; margin-top: 0px; margin-left: 15px; color:grey;">Most bought</h3>
-  <div class="shopping-page-wrapper">
-    <div style="padding: 20px;">
-      <div class ="your-class" id="order-display">
-        <% @products.first(12).each do |product| %>
-          <%= render "shared/product_card", product: product %>
-        <% end %>
-      </div>
+<h3 style="padding-top: 40px; margin-top: 0px; margin-left: 15px; color:grey;">Most bought</h3>
+<div class="shopping-page-wrapper">
+  <div style="padding: 20px;">
+    <div class ="your-class" id="order-display">
+      <% @products.first(12).each do |product| %>
+      <%= render "shared/product_card", product: product %>
+      <% end %>
     </div>
   </div>
+</div>
 
-  <h3 style="margin-left: 15px; color:grey;">Pain relief</h3>
-  <div class="shopping-page-wrapper">
-    <div style="padding: 20px;">
+<h3 style="margin-left: 15px; color:grey;">Pain relief</h3>
+<div class="shopping-page-wrapper">
+  <div style="padding: 20px;">
 
-      <div class ="your-class" id="order-display">
-        <% @products.last(12).each do |product| %>
-          <%= render "shared/product_card", product: product %>
-        <% end %>
-      </div>
-
+    <div class ="your-class" id="order-display">
+      <% @products.last(12).each do |product| %>
+      <%= render "shared/product_card", product: product %>
+      <% end %>
     </div>
+
   </div>
+</div>
 
-  <h3 style="margin-left: 15px; color:grey;">Allergy relief</h3>
-  <div class="shopping-page-wrapper">
-    <div style="padding: 20px;">
+<h3 style="margin-left: 15px; color:grey;">Allergy relief</h3>
+<div class="shopping-page-wrapper">
+  <div style="padding: 20px;">
 
-      <div class ="your-class" id="order-display">
-        <% @products.each do |product| %>
-          <%= render "shared/product_card", product: product %>
-        <% end %>
-      </div>
-      <br>
-      <br>
+    <div class ="your-class" id="order-display">
+      <% @products.each do |product| %>
+      <%= render "shared/product_card", product: product %>
+      <% end %>
     </div>
+    <br>
+    <br>
   </div>
+</div>
 

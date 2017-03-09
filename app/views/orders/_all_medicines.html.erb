@@ -22,33 +22,35 @@
       </div>
       <% end %>
     </div>
+  </div>
+</div>
 
 <% content_for(:after_js) do %>
-  <script>
+<script>
 
-    var orderProducts = {}
+  var orderProducts = {}
 
-    function addOne(id) {
-      var newQuantity = $('#quantity-' + id).data('quantity') + 1
-      $('#quantity-' + id).data('quantity', newQuantity);
-      console.log(  $('#quantity-' + id).data('quantity')  );
+  function addOne(id) {
+    var newQuantity = $('#quantity-' + id).data('quantity') + 1
+    $('#quantity-' + id).data('quantity', newQuantity);
+    console.log(  $('#quantity-' + id).data('quantity')  );
 
-    };
+  };
 
-    function subtractOne(id) {
-      var quantity = $('#quantity-' + id).data('quantity')
-      if ( quantity > 0 ) {
-        var newQuantity = quantity - 1
-        $('#quantity-' + id).data('quantity', newQuantity)
-      }
-      else {
-        $('#quantity-' + id).data('quantity', 0)
-      }
-      var subtractQuantity = $('#quantity-' + id).data('quantity') - 1
+  function subtractOne(id) {
+    var quantity = $('#quantity-' + id).data('quantity')
+    if ( quantity > 0 ) {
+      var newQuantity = quantity - 1
       $('#quantity-' + id).data('quantity', newQuantity)
-      console.log(  $('#quantity-' + id).data('quantity')  );
+    }
+    else {
+      $('#quantity-' + id).data('quantity', 0)
+    }
+    var subtractQuantity = $('#quantity-' + id).data('quantity') - 1
+    $('#quantity-' + id).data('quantity', newQuantity)
+    console.log(  $('#quantity-' + id).data('quantity')  );
 
-    };
+  };
 
     // define functions below
     function addItem(id) {
@@ -84,4 +86,4 @@
     }
 
   </script>
-<% end %>
+  <% end %>

@@ -14,15 +14,16 @@
     <% if user_signed_in? %>
 
     <!-- Notification -->
+    <% if current_user.customer %>
     <%= link_to "/", class: "navbar-wagon-item navbar-wagon-link" do %>
     <div class="badge-container">
       <i class="fa fa-shopping-cart" aria-hidden="true"></i>
       <div class="badge badge-blue">
-        <% if current_user.customer %>
-        <%= current_user.customer.orders.count %>
-        <% end %>
+<%= current_user.customer.orders.count %>
+
       </div>
     </div>
+    <% end %>
     <% end %>
 
     <%= link_to "/", class: "navbar-wagon-item navbar-wagon-link" do %>
@@ -52,50 +53,50 @@
         Account<%= image_tag "test.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li>
-          <% if current_user.customer.present? %>
-          <%= link_to customer_path(current_user) do %>
-          <h4 style="color: grey; margin-bottom: 0px !important;">Hi, <%= current_user.first_name.capitalize %></h4>
-          <% end %>
-          <% else %>
-          <%= link_to driver_path(current_user) do %>
-          <h4 style="color: grey; margin-bottom: 0px !important;">Hi, <%= current_user.first_name.capitalize %></h4>
-          <% end %>
-          <% end  %>
-         </li>
-         <li role="separator" class="divider"></li>
-         <li>
-          <% if current_user.customer.present? %>
-          <%= link_to customer_path(current_user) do %>
-          <i class="fa fa-user"></i> <%= t(".profile", default: "Dashboard") %>
-          <% end %>
-          <% else %>
-          <%= link_to driver_path(current_user) do %>
-          <i class="fa fa-user"></i> <%= t(".profile", default: "Dashboard") %>
-          <% end %>
-          <% end  %>
-        </li>
-        <li>
-          <%= link_to "#" do %>
-          <i class="fa fa-shopping-cart"></i>  <%= t(".profile", default: "Orders") %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to destroy_user_session_path, method: :delete do %>
-          <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-          <% end %>
-        </li>
-      </ul>
+            <% if current_user.customer.present? %>
+            <%= link_to customer_path(current_user) do %>
+            <h4 style="color: grey; margin-bottom: 0px !important;">Hi, <%= current_user.first_name.capitalize %></h4>
+            <% end %>
+            <% else %>
+            <%= link_to driver_path(current_user) do %>
+            <h4 style="color: grey; margin-bottom: 0px !important;">Hi, <%= current_user.first_name.capitalize %></h4>
+            <% end %>
+            <% end  %>
+          </li>
+          <li role="separator" class="divider"></li>
+          <li>
+            <% if current_user.customer.present? %>
+            <%= link_to customer_path(current_user) do %>
+            <i class="fa fa-user"></i> <%= t(".profile", default: "Dashboard") %>
+            <% end %>
+            <% else %>
+            <%= link_to driver_path(current_user) do %>
+            <i class="fa fa-user"></i> <%= t(".profile", default: "Dashboard") %>
+            <% end %>
+            <% end  %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+            <i class="fa fa-shopping-cart"></i>  <%= t(".profile", default: "Orders") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
     </div>
+
+    <% else %>
+
+    <!-- Login text link -->
+
+    <% end %>
+
+    <!-- Button (call-to-action) -->
   </div>
-
-  <% else %>
-
-  <!-- Login text link -->
-
-  <% end %>
-
-  <!-- Button (call-to-action) -->
-</div>
  <!--  <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo1.png" %>
     <% end %> -->

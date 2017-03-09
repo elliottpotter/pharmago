@@ -1,6 +1,12 @@
+<% if customer.customer_addresses.empty? %>
+<div style="margin: 40px;"><button type="button" class="btn btn-secondary" style="background-color: #e6e6e6
+; display: block; float: none; width: 100%; max-width: 100%;">+ New Delivery Address</button></div>
+<% else %>
+
 <h3> Your addresses </h3>
 <hr/>
 <% customer.customer_addresses.each do|address| %>
   <h4> <%= address.address %></h4>
   <!-- add deletion and update -->
+<% end %>
 <% end %>
