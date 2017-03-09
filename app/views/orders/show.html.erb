@@ -8,7 +8,7 @@
         <hr/>
         <% @order.products.each do |product| %>
         <li>
-          <%= product.name %> <p> Price: <%= humanized_money_with_symbol(product.price) %></p>
+          <%= product.name %> <p> Price: <%= humanized_money_with_symbol(product.amount_cents) %></p>
           <!-- show small pic -->
           </li>
         <% end %>
