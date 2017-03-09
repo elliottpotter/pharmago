@@ -6,19 +6,13 @@
       <div class="checkout-product-container">
         <h3> Products in cart:</h3>
         <hr/>
-
-        <% @order.order_products.each do |order_product| %>
-        <ul>
-          <p> <%= order_product.quantity %> | <%= order_product.product.name %> </p>
-          <% total_price = order_product.quantity * order_product.product.amount_cents %>
-          <p> Price: <%= total_price %>€, per item: <%= order_product.product.amount_cents %>€ </p>
-
-          <!-- show small pic? -->
-          </ul>
-
+        <% @order.products.each do |product| %>
+        <li>
+          <%= product.name %> <p> Price: <%= humanized_money_with_symbol(product.price) %></p>
+          <!-- show small pic -->
+          </li>
         <% end %>
-        <hr/>
-        <h4> Sub total: <%= @order.amount %>€ </h4>
+      </ul>
     </div>
   </div>
 
@@ -86,11 +80,11 @@
           <h4> <%= current_user.email %> </h4>
           <h4> <span id="confirm-modal-address"> </span> </h4>
           <h4>Products:</h4>
-          <% @order.order_products.each do |order_product| %>
-          <ul><%= order_product.quantity %> | <%= order_product.product.name %></ul>
+          <% @order.products.each do |product| %>
+          <li><%= product.name %></li>
           <% end %>
         </div>
-        <h4> Finalize order and pay below </h4>
+        <h3> Finalize order and pay below </h3>
         <hr/>
         <%= form_tag order_payments_path(@order) do %>
         <article>
