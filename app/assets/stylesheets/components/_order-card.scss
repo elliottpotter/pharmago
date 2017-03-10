@@ -37,7 +37,7 @@
 }
 
 .product-quantity-bubble {
-  border-top-left-radius: 20px !important;
+    border-top-left-radius: 20px !important;
     border-top-right-radius: 20px !important;
     border-bottom-right-radius: 20px !important;
     border-bottom-left-radius: 20px !important;
@@ -53,16 +53,18 @@
     text-align: center;
     font-weight: normal;
     text-rendering: optimizeLegibility;
-
+    line-height: 20px;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: lighter;
 }
 
-.top-right {
-  position: absolute;
-  z-index: 1;
-  right: 0;
-  top: 0;
-  // left: 0;
-}
+// .top-right {
+//   position: absolute;
+//   z-index: 1;
+//   right: 0;
+//   top: 0;
+//   // left: 0;
+// }
 
 .product-quantity {
   font-weight: lighter;

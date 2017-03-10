@@ -3,11 +3,11 @@
     <div class="card product-info" style="width: 150px; height: 150px; background-image: cover; background-image: url('<%= product.url %>'); background-size: 100%">
       <div class="card-category" id='<%= product.id %>'> </div>
 
-      <div class="top-right">
-        <div class="product-quantity-bubble">
-          5
+      <div>
+        <div id='product-quantity-bubble-<%= product.id %>' class="product-quantity-bubble">
         </div>
       </div>
+
       <div id="product-quantity-<%= product.id %>" class="item-quantity">
         <div class="product-quantity" id="product-quantity-value-<%= product.id %>"></div>
         <div class="in-cart">in cart</div>
@@ -62,9 +62,10 @@
       orderProducts[id] = newQuantity;
       if ( orderProducts[id] > 0 ) {
         $('#product-quantity-value-' + id).text(orderProducts[id]);
+        $('#product-quantity-bubble-' + id).text(orderProducts[id]);
+        // $('#product-quantity-bubble-' + id).show();
         $('#' + 'product-quantity-' + id).show();
       }
-      console.log( orderProducts );
     };
 
     function subtractOne(id) {
@@ -74,19 +75,18 @@
         $('#quantity-' + id).data('quantity', newQuantity)
         orderProducts[id] = newQuantity;
         $('#product-quantity-value-' + id).text(orderProducts[id]);
-        console.log( orderProducts );
+        $('#product-quantity-bubble-' + id).text(orderProducts[id]);
       }
       else {
         $('#quantity-' + id).data('quantity', 0)
         orderProducts[id] = newQuantity;
         delete orderProducts[id];
         $('#' + 'product-quantity-' + id).hide();
-        console.log( orderProducts );
+        $('#product-quantity-bubble-' + id).hide();
       }
       var subtractQuantity = $('#quantity-' + id).data('quantity') - 1
       $('#quantity-' + id).data('quantity', newQuantity)
       console.log(  $('#quantity-' + id).data('quantity')  );
-
     };
 
     // define functions below
@@ -105,17 +105,27 @@
 
     $('.quantity-control').hide();
     $('.item-quantity').hide();
+    $('.product-quantity-bubble').hide();
 
 
     function showQuantityControl(id) {
       if ( orderProducts[id] > 0 ) {
         // $('#product-quantity-value-' + id).text(orderProducts[id]);
         $('#' + 'product-quantity-' + id).show();
+        $('#' + 'product-quantity-bubble-' + id).hide();
       }
     }
 
     function hideQuantityControl(id) {
       $('#' + 'product-quantity-' + id).hide();
+      if (orderProducts[id] > 0) {
+        $('#' + 'product-quantity-bubble-' + id).show();
+      }
+    }
+
+///////////////////////////
+    function hideProductQuantityBubble(id) {
+      $('#' + 'product-quantity-bubble-' + id).hide();
     }
 
     function showProductQuantity(id) {

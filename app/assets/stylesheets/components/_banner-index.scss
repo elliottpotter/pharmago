@@ -1,6 +1,11 @@
+.bordered {
+  border-left: thin solid black;
+  border-right: thin solid black;
+}
+
 .card1 {
-  height: 350px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  height: 450px;
+  // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   color: white;
   position: relative;
@@ -52,10 +57,11 @@
 }
 
 .searchform{
-  background: #e6e6e6;
+  background: #ffffff;
   margin: 0px auto;
   width: 400px;
   height: 50px;
+  border-radius: 1px;
 }
 
 .container-1{
@@ -68,7 +74,7 @@
 .container-1 input#search{
   width: 300px;
   height: 50px;
-  background: #2b303b;
+  background: #ffffff;
   border: none;
   font-size: 10pt;
   float: left;
@@ -124,7 +130,7 @@
 .container-3 input#search{
   width: 300px;
   height: 50px;
-  background: #e6e6e6;
+  background: #ffffff;
   border: none;
   font-size: 10pt;
   float: left;
@@ -133,7 +139,6 @@
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  color: #fff;
 }
 
 .container-3 input#search::-webkit-input-placeholder {

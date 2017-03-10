@@ -14,82 +14,82 @@
     <% if user_signed_in? %>
 
     <!-- Notification -->
-    <% if current_user.customer %>
-    <%= link_to "/", class: "navbar-wagon-item navbar-wagon-link" do %>
-    <div class="badge-container">
-      <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-      <div class="badge badge-blue">
-        <%= current_user.customer.orders.count %>
+      <% if current_user.customer %>
+        <%= link_to "/", class: "navbar-wagon-item navbar-wagon-link" do %>
+        <div class="badge-container">
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          <div class="badge badge-blue">
+            <%= current_user.customer.orders.count %>
 
-      </div>
-    </div>
-    <% end %>
-    <% end %>
-
-    <%= link_to "/", class: "navbar-wagon-item navbar-wagon-link" do %>
-    <div class="badge-container">
-      <i class="fa fa-ambulance" aria-hidden="true"></i>
-      <div class="badge badge-blue">
-        <% if current_user.customer %>
-        <%= current_user.customer.orders.count %>
-        <% elsif current_user.driver %>
-        <%= current_user.driver.orders.count %>
+          </div>
+        </div>
         <% end %>
+      <% end %>
+
+      <% if current_user.driver %>
+        <%= link_to "/", class: "navbar-wagon-item navbar-wagon-link" do %>
+        <div class="badge-container">
+          <i class="fa fa-ambulance" aria-hidden="true"></i>
+          <div class="badge badge-blue">
+            <% if current_user.customer %>
+            <%= current_user.customer.orders.count %>
+            <% elsif current_user.driver %>
+            <%= current_user.driver.orders.count %>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+
+        <div class="switch">
+          <input type="checkbox" value="None" id="switch" name="check" checked />
+          <label for="switch"></label>
+        </div>
+      <% end %>
+
+
+      <!-- Profile picture and dropdown -->
+      <div class="navbar-wagon-item">
+        <div class="dropdown" style="color: grey;">
+          Account<%= image_tag "test.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <% if current_user.customer.present? %>
+              <%= link_to customer_path(current_user) do %>
+              <h4 style="color: grey; margin-bottom: 0px !important;">Hi, <%= current_user.first_name.capitalize %></h4>
+              <% end %>
+              <% else %>
+              <%= link_to driver_path(current_user) do %>
+              <h4 style="color: grey; margin-bottom: 0px !important;">Hi, <%= current_user.first_name.capitalize %></h4>
+              <% end %>
+              <% end  %>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <% if current_user.customer.present? %>
+              <%= link_to customer_path(current_user) do %>
+              <i class="fa fa-user"></i> <%= t(".profile", default: "Dashboard") %>
+              <% end %>
+              <% else %>
+              <%= link_to driver_path(current_user) do %>
+              <i class="fa fa-user"></i> <%= t(".profile", default: "Dashboard") %>
+              <% end %>
+              <% end  %>
+            </li>
+            <li>
+              <%= link_to "#" do %>
+              <i class="fa fa-shopping-cart"></i>  <%= t(".profile", default: "Orders") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <% end %>
 
-    <% if current_user.driver %>
-    <div class="switch">
-      <input type="checkbox" value="None" id="switch" name="check" checked />
-      <label for="switch"></label>
-    </div>
-    <% end %>
-
-
-    <!-- Profile picture and dropdown -->
-    <div class="navbar-wagon-item">
-      <div class="dropdown" style="color: grey;">
-        Account<%= image_tag "test.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li>
-            <% if current_user.customer.present? %>
-            <%= link_to customer_path(current_user) do %>
-            <h4 style="color: grey; margin-bottom: 0px !important;">Hi, <%= current_user.first_name.capitalize %></h4>
-            <% end %>
-            <% else %>
-            <%= link_to driver_path(current_user) do %>
-            <h4 style="color: grey; margin-bottom: 0px !important;">Hi, <%= current_user.first_name.capitalize %></h4>
-            <% end %>
-            <% end  %>
-          </li>
-          <li role="separator" class="divider"></li>
-          <li>
-            <% if current_user.customer.present? %>
-            <%= link_to customer_path(current_user) do %>
-            <i class="fa fa-user"></i> <%= t(".profile", default: "Dashboard") %>
-            <% end %>
-            <% else %>
-            <%= link_to driver_path(current_user) do %>
-            <i class="fa fa-user"></i> <%= t(".profile", default: "Dashboard") %>
-            <% end %>
-            <% end  %>
-          </li>
-          <li>
-            <%= link_to "#" do %>
-            <i class="fa fa-shopping-cart"></i>  <%= t(".profile", default: "Orders") %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to destroy_user_session_path, method: :delete do %>
-            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-            <% end %>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <% else %>
+      <% else %>
 
     <!-- Login text link -->
 
