@@ -28,7 +28,9 @@
 
     <div class ="your-class" id="order-display">
       <% @products.each do |product| %>
-      <%= render "shared/product_card", product: product %>
+      <% unless product.id == 1 || product.id == 2 ||product.id == 3 ||product.id == 4 %>
+        <%= render "shared/product_card", product: product %>
+        <% end %>
       <% end %>
     </div>
     <br>

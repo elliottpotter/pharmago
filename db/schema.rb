@@ -116,14 +116,6 @@ ActiveRecord::Schema.define(version: 20170309131823) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "verification_codes", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "code"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_verification_codes_on_user_id", using: :btree
-  end
-
   add_foreign_key "customer_addresses", "customers"
   add_foreign_key "customers", "users"
   add_foreign_key "drivers", "users"
@@ -131,5 +123,4 @@ ActiveRecord::Schema.define(version: 20170309131823) do
   add_foreign_key "order_products", "products"
   add_foreign_key "orders", "customers"
   add_foreign_key "orders", "drivers"
-  add_foreign_key "verification_codes", "users"
 end

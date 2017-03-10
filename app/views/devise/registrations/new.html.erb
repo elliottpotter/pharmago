@@ -1,4 +1,4 @@
-<div class="banner" style="background: linear-gradient(-225deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.2) 50%), url( <%= image_path('doctor.jpg') %> );">
+<div class="banner" style="background: linear-gradient(-225deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.2) 50%), url( <%= image_path('delivery.jpg') %> );">
 
   <div class="login test">
     <%= image_tag 'pharmago', id: 'logo'  %>
@@ -37,12 +37,13 @@
     </div>
   </div>
 </div>
-<%= content_for :after_js do %>
-<script type="text/javascript">
+
+<%#= content_for :after_js do %>
+<!-- <script type="text/javascript">
   $(window).load(function(){
     $('#openmodel').modal('show');
   });
-</script>
+</script> -->
 
-<% end %>
+<%# end %>
 
