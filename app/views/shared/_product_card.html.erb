@@ -1,6 +1,6 @@
 <div style=":focus {outline:0;}" onmouseenter="showQuantityControl('<%= product.id %>')" onmouseleave="hideQuantityControl('<%= product.id %>')" class="row">
   <div class="col-xs-12">
-    <div class="card product-info" style="width: 150px; height: 150px; background-image: cover; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= product.url %>');">
+    <div class="card product-info" style="width: 150px; height: 150px; background-image: cover !important; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= product.url %>');">
 
       <div class="card-category" id='<%= product.id %>'> </div>
       <div data-product-id="<%= product.id %>" data-quantity=0 class="quantity-control" id='quantity-<%= product.id %>'>
