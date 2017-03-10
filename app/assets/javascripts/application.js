@@ -16,8 +16,8 @@ $(function(){
 
   $('.your-class').slick({
     infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToShow: 5,
+    slidesToScroll: 5,
     centerMode: false,
     centerPadding: '0px',
     arrows: true
