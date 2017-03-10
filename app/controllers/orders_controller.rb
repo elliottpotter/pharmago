@@ -30,7 +30,9 @@ class OrdersController < ApplicationController
   def new
     @order              = current_user.customer.orders.create
     @products           = Product.all
+    @prescription       = Prescription.new
     authorize @products
+    # authorize @prescription
   end
 
   def create

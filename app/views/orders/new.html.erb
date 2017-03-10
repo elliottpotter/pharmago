@@ -31,7 +31,7 @@
           <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Categories</h4></div>
           <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
         </div>
-        <div class="tab" data-target="#yourprescription">
+        <div class="tab" data-target="#newprescription">
           <div class ="col-xs-1"><i class="fa fa-plus-square" aria-hidden="true"></i></div>
           <div class ="col-xs-7 col-xs-offset-1 dashboard-text"><h4>Add a prescription</h4></div>
           <div class ="col-xs-3 text-right"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
@@ -53,8 +53,8 @@
       <div class="tab-content hidden" id="categories">
         <%= render 'suggested_categories_show', order: @order, product: @product  %>
       </div>
-      <div class="tab-content hidden" id="yourprescription">
-        <%= render 'your_prescription', order: @order, product: @product, order_product: @order_product  %>
+      <div class="tab-content hidden" id="newprescription">
+        <%= render 'new_prescription' %>
       </div>
     </div>
 

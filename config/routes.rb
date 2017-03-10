@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'prescriptions/new'
+
   authenticated :user do
     root :to => 'passthrough#minirouter' # Look up the PassthroughController
   end
@@ -12,6 +14,10 @@ Rails.application.routes.draw do
   get 'drivers/switch',             to: 'drivers#switch'
   post 'drivers',                   to: 'driver_registrations#create'
   post 'drivers/verify',            to: 'drivers#verify'
+
+  get 'prescriptions/new',          to: 'prescriptions#new'
+  post 'prescriptions/create',       to: 'prescriptions#create'
+
 
   get 'orders/claim',               to: 'orders#claim'
   post 'order/add_to_cart',         to: 'orders#add_to_cart'

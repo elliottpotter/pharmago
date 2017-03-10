@@ -1,0 +1,7 @@
+<div class="text-center">
+  <%= simple_form_for @prescription, url: prescriptions_new_path, remote: true do |f| %>
+    <%= f.input :number, placeholder: 'Prescription # here' %>
+    <%= f.input :interval, placeholder: 'Weekly, monthly, bimonthly etc.' %>
+    <%= f.submit "Add prescription", class: "btn btn-success btn-block" %>
+  <% end %>
+</div>
