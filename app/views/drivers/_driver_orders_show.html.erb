@@ -1,6 +1,6 @@
   <div class="verification-code">
     <% if @driver.unverified? %>
-    <h2 style="padding-bottom: 40px; color: grey;">Verify your account to access all the available orders. <br> We send you the code on your phone</h2>
+    <h2 style="padding-bottom: 40px; color: grey;"> To see available orders, enter your 5-digit verification code </h2>
     <%= render "shared/verification_code" %>
     <% else %>
     <% if @available_orders.length > 0 %>

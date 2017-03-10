@@ -1,0 +1,10 @@
+<h1 style="margin-left: 30px">Add a new prescription</h1>
+<div style="width: 600px; text-align: left; padding: 30px" class="text-center">
+  <%= simple_form_for @prescription, url: prescriptions_create_path(@prescription), remote: true do |f| %>
+    <%= f.input :number, label: 'Your 16-digit Rx Number', placeholder: 'Prescription # here' %>
+    <br>
+    <%= f.input :interval, label: 'How often will you need this prescription?', placeholder: 'Weekly, monthly, bimonthly etc.' %>
+    <br>
+    <%= f.submit "Add prescription", class: "btn btn-success btn-block" %>
+  <% end %>
+</div>
