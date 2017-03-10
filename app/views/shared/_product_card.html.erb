@@ -1,8 +1,18 @@
-<div onmouseenter="showQuantityControl('<%= product.id %>')" onmouseleave="hideQuantityControl('<%= product.id %>')" class="row">
+<div onmouseenter="showQuantityControl('<%= product.id %>'), showProductQuantity('<%= product.id %>')" onmouseleave="hideQuantityControl('<%= product.id %>'), hideProductQuantity('<%= product.id %>')" class="row">
   <div class="col-xs-12">
-    <div class="card product-info" style="width: 150px; height: 150px; background-image: cover; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= product.url %>');">
-
+    <div class="card product-info" style="width: 150px; height: 150px; background-image: cover; background-image: url('<%= product.url %>'); background-size: 100%">
       <div class="card-category" id='<%= product.id %>'> </div>
+
+      <div class="top-right">
+        <div class="product-quantity-bubble">
+          5
+        </div>
+      </div>
+      <div id="product-quantity-<%= product.id %>" class="item-quantity">
+        <div class="product-quantity" id="product-quantity-value-<%= product.id %>"></div>
+        <div class="in-cart">in cart</div>
+      </div>
+
       <div data-product-id="<%= product.id %>" data-quantity=0 class="quantity-control" id='quantity-<%= product.id %>'>
         <span onclick="subtractOne('<%= product.id %>')" class="square subtract add-button" style="font-size: 10px;"><i class="fa fa-minus"></i></span>
         <span onclick="addOne('<%= product.id %>')" class="square add add-button" style="font-size: 10px;"><i class="fa fa-plus"></i> ADD</span>
@@ -50,6 +60,10 @@
       var newQuantity = $('#quantity-' + id).data('quantity') + 1
       $('#quantity-' + id).data('quantity', newQuantity);
       orderProducts[id] = newQuantity;
+      if ( orderProducts[id] > 0 ) {
+        $('#product-quantity-value-' + id).text(orderProducts[id]);
+        $('#' + 'product-quantity-' + id).show();
+      }
       console.log( orderProducts );
     };
 
@@ -59,12 +73,14 @@
         var newQuantity = quantity - 1
         $('#quantity-' + id).data('quantity', newQuantity)
         orderProducts[id] = newQuantity;
+        $('#product-quantity-value-' + id).text(orderProducts[id]);
         console.log( orderProducts );
       }
       else {
         $('#quantity-' + id).data('quantity', 0)
         orderProducts[id] = newQuantity;
         delete orderProducts[id];
+        $('#' + 'product-quantity-' + id).hide();
         console.log( orderProducts );
       }
       var subtractQuantity = $('#quantity-' + id).data('quantity') - 1
@@ -88,12 +104,25 @@
     }
 
     $('.quantity-control').hide();
+    $('.item-quantity').hide();
+
 
     function showQuantityControl(id) {
-      $('#' + 'quantity-' + id).show();
+      if ( orderProducts[id] > 0 ) {
+        // $('#product-quantity-value-' + id).text(orderProducts[id]);
+        $('#' + 'product-quantity-' + id).show();
+      }
     }
 
     function hideQuantityControl(id) {
+      $('#' + 'product-quantity-' + id).hide();
+    }
+
+    function showProductQuantity(id) {
+      $('#' + 'quantity-' + id).show();
+    }
+
+    function hideProductQuantity(id) {
       $('#' + 'quantity-' + id).hide();
     }
 

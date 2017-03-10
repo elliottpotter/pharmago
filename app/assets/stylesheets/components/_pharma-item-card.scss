@@ -1,9 +1,7 @@
 .card {
   height: 300px;
   width: 200px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   display: inline-block;
-  // background-size: cover !important;
   color: white;
   position: relative;
   margin: 5px;
@@ -14,6 +12,7 @@
   top: 10px;
 }
 .card-category {
+  color: red;
   position: absolute;
   top: 10px;
   left: 10px;
