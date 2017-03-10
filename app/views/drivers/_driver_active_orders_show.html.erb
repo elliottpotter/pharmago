@@ -1,16 +1,28 @@
-<% if (@orders.where(aasm_state: 'pending')).empty? %>
-<h2>Welcome, <%= current_user.first_name.capitalize %>! It looks like you haven't got any Active Orders. Head to Available Orders to earn money right away.</h2>
+<div style="color: grey;" class="row">
+  <div class="col-xs-4 col-xs-offset-1">
+    <h4><i class="fa fa-ambulance" aria-hidden="true"></i> Drive pharmaceuticals </h4>
+  </div>
+  <div class="col-xs-4">
+    <h4><i class="fa fa-heart" aria-hidden="true"></i> Help someone out</h4>
+  </div >
+  <div class="col-xs-3">
+  <h4><i class="fa fa-euro" aria-hidden="true"></i> Earn money</h4>
+  </div>
+</div>
+<% if (@orders.where(aasm_state: 'claimed')).empty? %>
+<div style="color: grey;"> <h2>Welcome, <%= current_user.first_name.capitalize %>! It looks like you haven't got any Active Orders. Head to Available Orders to earn money right away.</h2>
+</div>
+
 <% else %>
 <h3 style="color: grey;">Active orders</h3>
-<% @orders.where(aasm_state: 'pending').each do |order| %>
+<% @orders.where(aasm_state: 'claimed').each do |order| %>
 
-<div class="">
+<div style="color: grey;">
   <h4> Order-id: <%= order.id  %> </h4>
   <h4> Order -  status: <%= order.aasm_state %> </h4>
-  <h4> delivery date: <%= order.delivery_date %> </h4>
-  <h4> <%= link_to "See Order", order_path(order) %></h4>
+  <h4> Delivery before: <%= Time.now.asctime %> </h4>
 </div>
 
 <% end %>
-
 <% end %>
+

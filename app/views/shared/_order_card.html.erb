@@ -13,10 +13,11 @@
 
 <div id="card-<%= order.id %>" class="order-card">
   <div class="order-info">
-    <%= order.customer.user.email %> <br>
-    <%= order.customer.customer_addresses.last.address %>
+    <h4> Deliver before: <br> <%= Time.now.asctime %> </h4>
   </div>
-
+  <div>
+    <h4> <strong> <%= order.customer.customer_addresses.last.address %> </strong> </h4>
+  </div>
   <div class="order-interaction">
     <span onclick="showConfirmation('<%= order.id %>');" class="btn btn-success">Claim order</span>
   </div>
